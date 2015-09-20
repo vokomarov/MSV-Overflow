@@ -8,15 +8,17 @@
 	<title>MSV overflow</title>
 
 	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="{$template}/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{$template}/css/font-awesome.min.css">
+	<link rel="stylesheet" href="{$template}/css/styles.css">
 </head>
 <body>
 	<h1>Hello, world!</h1>
 	<h2>{$template}</h2>
 
 <!-- jQuery first, then Bootstrap JS. -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+<script src="{$template}/js/jquery.min.js"></script>
+<script src="{$template}/bootstrap/js/bootstrap.min.js"></script>
 <script src="{$template}/js/system.js"></script>
 <script src="{$template}/js/app.js"></script>
 </body>
