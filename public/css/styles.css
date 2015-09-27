@@ -4,3 +4,13 @@
  * @module MSV
  * @package Stylesheet
  */
+.top-offset{
+    margin-top: 10px;
+}
+.light-post{
+    padding: 10px 0 ;
+    border-top: 1px solid #515151;
+}
+.without-padding-right{
+    padding-right: 0;
+}
