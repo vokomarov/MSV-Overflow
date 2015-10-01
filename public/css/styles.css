@@ -4,6 +4,9 @@
  * @module MSV
  * @package Stylesheet
  */
+img{
+    max-width: 100%;
+}
 .top-offset{
     margin-top: 10px;
 }
@@ -11,6 +14,53 @@
     padding: 10px 0 ;
     border-top: 1px solid #849aa5;
 }
+.nav-tabs{
+    background: #289CD0;
+}
 .without-padding-right{
     padding-right: 0;
+}
+.navbar .navbar-brand{
+    max-width: 58px;
+}
+.navbar-brand>img {
+    max-width: 100%;
+}
+.label-warning {
+    background-color: #FF820E!important;
+}
+.footer{
+    padding: 0;
+}
+.footer .navbar.navbar, .navbar-default.navbar{
+    margin-bottom: 0;
+}
+.footer .navbar .navbar-nav>li>a{
+    color: #252525;
+}
+.login-logo{
+    width: 30px;
+    height: 33px;
+}
+.padding-100{
+    padding-top: 100px;
+}
+.padding-15{
+ padding-top: 15px;
+}
+.form-horizontal, .switch{
+    background-color: #fff;
+    padding: 19px;
+    box-shadow: 0 8px 17px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19);
+    border-radius: 2px;
+    border: 0;
+}
+.form-horizontal .control-label{
+    text-align: left!important;
+}
+.switch p{
+    margin: 0;
+}
+.top-offset-15{
+    margin-top: 15px;
 }
