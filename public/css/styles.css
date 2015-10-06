@@ -130,7 +130,7 @@ img{
     text-transform: none!important;
     margin: 0;
 }
+.main-menu ul li.active a,
 .main-menu ul li a:hover{
     background-color: #009688!important;
 }
-.main-menu ul li.active a{}
