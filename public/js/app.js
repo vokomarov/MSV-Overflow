@@ -14,10 +14,14 @@ MSV.app = (function(document, $){
 		//private variable
 
 		//private method
+		initBootstrapMaterial = function(){
+			$.material.init();
+		},
 		bindEvent = function(){
 
 		};
 
+	sys.registerAutoload(initBootstrapMaterial);
 	sys.registerAutoload(bindEvent);
 
 	//public method
