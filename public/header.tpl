@@ -29,12 +29,17 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="/"><img src="{$template}/images/logo-white-horisontal.png" alt="logo"/> </a>
+				{if !isset($is_home)}
+					<a class="navbar-brand" href="/"><img src="{$template}/images/logo-white-horisontal.png" alt="logo"/> </a>
+				{/if}
 			</div>
 			<div class="navbar-collapse collapse navbar-responsive-collapse">
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="/signup">Sign up</a></li>
-					<li><a href="/login">Log in</a></li>
+				<ul class="nav navbar-nav navbar-left">
+					<li>
+						<form class="navbar-form navbar-left" action="/search" method="POST">
+							<input type="text" class="form-control col-lg-8" placeholder="Search">
+						</form>
+					</li>
 					<li class="dropdown">
 						<a href="#" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Help<b class="caret"></b></a>
 						<ul class="dropdown-menu">
@@ -45,11 +50,10 @@
 							<li><a href="javascript:void(0)">Separated link</a></li>
 						</ul>
 					</li>
-					<li>
-						<form class="navbar-form navbar-left">
-							<input type="text" class="form-control col-lg-8" placeholder="Search">
-						</form>
-					</li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="/signup">Sign up</a></li>
+					<li><a href="/login">Log in</a></li>
 				</ul>
 			</div>
 		</div>
