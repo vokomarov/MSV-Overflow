@@ -4,6 +4,22 @@
  * @module MSV
  * @package Stylesheet
  */
+html{
+    height: 100%;
+    width: 100%;
+}
+body{
+    width: 100%;
+    min-height: 100%;
+    padding-bottom: 60px;
+    position: relative;
+}
+body>footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
 img{
     max-width: 100%;
 }
@@ -133,4 +149,18 @@ img{
 .main-menu ul li.active a,
 .main-menu ul li a:hover{
     background-color: #009688!important;
+}
+
+/* admin */
+.admin-page{
+    padding: 20px 0;
+}
+.admin-page .panel p.lead{
+    margin-bottom: 0;
+}
+.admin-page .index h1{
+    margin-bottom: 25px;
+}
+.admin-page .index .nav-pills .badge{
+    float: right;
 }

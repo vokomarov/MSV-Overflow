@@ -1,4 +1,4 @@
-{include file='header.tpl'}
+{include file='header.tpl' site_title='MSV overflow'}
 
 <div class="container">
     {include file='menu.tpl'}

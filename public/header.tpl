@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>MSV overflow</title>
+	<title>{$site_title}</title>
 
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="{$template}/bootstrap/css/bootstrap.min.css">
