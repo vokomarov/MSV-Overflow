@@ -4,6 +4,22 @@
  * @module MSV
  * @package Stylesheet
  */
+html{
+    height: 100%;
+    width: 100%;
+}
+body{
+    width: 100%;
+    min-height: 100%;
+    padding-bottom: 60px;
+    position: relative;
+}
+body>footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
 img{
     max-width: 100%;
 }
@@ -21,10 +37,10 @@ img{
     padding-right: 0;
 }
 .navbar .navbar-brand{
-    max-width: 58px;
+    padding: 9px 15px 15px;
 }
 .navbar-brand>img {
-    max-width: 100%;
+    max-height: 100%
 }
 .label-warning {
     background-color: #FF820E!important;
@@ -63,4 +79,88 @@ img{
 }
 .top-offset-15{
     margin-top: 15px;
+}
+
+/* signup/login page */
+.login-page{
+    padding: 50px 0;
+}
+.login-page .heading h4{
+    height: 30px;
+}
+.login-page .heading img{
+    height: 100%;
+    width: auto;
+    margin: -8px 0 0 8px;
+}
+.login-page .login-box{
+    margin: 0 auto;
+    width: 350px;
+}
+.login-page .login-box:first-of-type{
+    margin-bottom: 20px;
+    padding: 15px;
+}
+.login-box p{
+    margin: 0;
+}
+.login-box .form-group:last-of-type{
+    margin-bottom: -10px;
+}
+.login-box .form-group:last-of-type input,
+.login-box .form-group:last-of-type button,
+.login-box .form-group:last-of-type a{
+    margin-bottom: 0;
+}
+
+/* menu */
+.main-menu{
+    height: 60px;
+    margin: 20px 0;
+}
+.main-menu .main-logo{
+    height: 100%;
+}
+.main-menu .main-logo img{
+    height: 100%;
+    width: auto;
+}
+.main-menu ul{
+    list-style: none outside;
+    margin: 0;
+    padding: 17px 0;
+}
+.main-menu ul li{
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 2px;
+}
+.main-menu ul li a{
+    display: block;
+    padding: 6px 11px;
+    text-decoration: none;
+    background-color: #aaa!important;
+    color: #fff!important;
+    font-size: 14px;
+    line-height: 100%;
+    text-transform: none!important;
+    margin: 0;
+}
+.main-menu ul li.active a,
+.main-menu ul li a:hover{
+    background-color: #009688!important;
+}
+
+/* admin */
+.admin-page{
+    padding: 20px 0;
+}
+.admin-page .panel p.lead{
+    margin-bottom: 0;
+}
+.admin-page .index h1{
+    margin-bottom: 25px;
+}
+.admin-page .index .nav-pills .badge{
+    float: right;
 }

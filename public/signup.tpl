@@ -1,35 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Required meta tags always come first -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Login</title>
+{include file='header.tpl'}
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{$template}/bootstrap/css/bootstrap.min.css">
-
-    <!-- Material Design for Bootstrap -->
-    <link rel="stylesheet" href="{$template}/bootstrap-material-design/css/roboto.min.css">
-    <link rel="stylesheet" href="{$template}/bootstrap-material-design/css/material-fullpalette.min.css">
-    <link rel="stylesheet" href="{$template}/bootstrap-material-design/css/ripples.min.css">
-
-    <link rel="stylesheet" href="{$template}/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{$template}/css/styles.css">
-
-</head>
-<body>
-<div class="container padding-100">
-    <div class="row">
-        <div class="col-lg-3 col-md-3 col-lg-offset-4 col-md-offset-4">
-            <h4 class="text-center">Sign up to continue to</h4>
+<div class="container login-page">
+    <div class="text-center heading">
+        <h4>Sign up to continue to  <img src="{$template}/images/logo-dark-horisontal.png" alt="MSV Overflow"/></h4>
+    </div>
+    <div class="">
+        <div class="panel panel-default login-box">
+            <div class="panel-body">
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <input class="form-control floating-label input-lg" id="name" name="name" type="text" placeholder="Display name" data-hint="Vasya K.">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control floating-label input-lg" id="login" name="login" type="text" placeholder="Login" data-hint="Please, type only a-A, 0-9 and - characters">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control floating-label input-lg" id="email" name="email" type="email" placeholder="Email" data-hint="help-me@msv.ua">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control floating-label input-lg" id="password" name="password" type="password" placeholder="Password" data-hint="Don't worry, We don't see your password, maybe :)">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control floating-label input-lg" id="cpassword" name="cpassword" type="password" placeholder="Confirm password" data-hint="Input password from previous field again">
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" checked="checked"> Я погоджуюсь, в разі потреби, передати свою печінку у власність MSV Overflow
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <a role="button" href="/" class="btn btn-default">Back</a>
+                        <button type="submit" class="btn btn-primary pull-right">Sign Up</button>
+                    </div>
+                    <div class="clear"></div>
+                </form>
+                <p class="text-center">By registering, you don't agree to Terms of Use and Rrivacy Policy</p>
+            </div>
         </div>
-        <div class="col-lg-1 col-md-1">
-            <img class="login-logo" src="{$template}/images/logo.png" alt="logo"/>
+
+        <div class="panel panel-default login-box">
+            <div class="panel-body text-center">
+                <p>Already have an account? <a href="/login">Log in</a></p>
+            </div>
         </div>
     </div>
-    <div  class="row padding-15">
+
+
+{*
+    <div class="row padding-15">
         <div class="col-lg-4 col-md-4 col-lg-offset-4 col-md-offset-4">
             <form class="form-horizontal">
                 <fieldset>
@@ -70,24 +90,10 @@
     <div class="row padding-15">
         <div class="col-lg-4 col-md-4 col-lg-offset-4 col-md-offset-4">
             <div class="switch text-center">
-                <p>Already have an account? <a href="{$base}index.php/login">Log in</a></p>
+                <p>Already have an account? <a href="/login">Log in</a></p>
             </div>
         </div>
     </div>
+    *}
 </div>
-
-<!-- jQuery first, then Bootstrap JS. -->
-<script src="{$template}/js/jquery.min.js"></script>
-<script src="{$template}/bootstrap/js/bootstrap.min.js"></script>
-<script src="{$template}/js/system.js"></script>
-<script src="{$template}/js/app.js"></script>
-
-<!-- Material Design for Bootstrap -->
-<script src="{$template}/bootstrap-material-design/js/material.min.js"></script>
-<script src="{$template}/bootstrap-material-design/js/ripples.min.js"></script>
-<script>
-    $.material.init();
-</script>
-
-</body>
-</html>
+{include file='footer.tpl'}

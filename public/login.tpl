@@ -1,25 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Required meta tags always come first -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Login</title>
+{include file='header.tpl'}
+<div class="container login-page">
+    <div class="text-center heading">
+        <h4>Log in to continue to  <img src="{$template}/images/logo-dark-horisontal.png" alt="MSV Overflow"/></h4>
+    </div>
+    <div class="">
+        <div class="panel panel-default login-box">
+            <div class="panel-body">
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <input class="form-control floating-label input-lg" id="login" name="login" type="text" placeholder="Login or Email">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control floating-label input-lg" id="password" name="password" type="password" placeholder="Password">
+                        <p class="text-right"><a href="/login/forgot" class="forgot-password">forgot password?</a></p>
+                        <p class="text-warning hidden forgot-password-notify">А голову ти свою не забув?</p>
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" checked="checked"> Remember me forever
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <a role="button" href="/" class="btn btn-default">Back</a>
+                        <button type="submit" class="btn btn-primary pull-right">Log In</button>
+                    </div>
+                </form>
+            </div>
+        </div>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{$template}/bootstrap/css/bootstrap.min.css">
-
-    <!-- Material Design for Bootstrap -->
-    <link rel="stylesheet" href="{$template}/bootstrap-material-design/css/roboto.min.css">
-    <link rel="stylesheet" href="{$template}/bootstrap-material-design/css/material-fullpalette.min.css">
-    <link rel="stylesheet" href="{$template}/bootstrap-material-design/css/ripples.min.css">
-
-    <link rel="stylesheet" href="{$template}/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{$template}/css/styles.css">
-
-</head>
-<body>
+        <div class="panel panel-default login-box">
+            <div class="panel-body text-center">
+                <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{*
 <div class="container padding-100">
     <div class="row">
         <div class="col-lg-3 col-md-3 col-lg-offset-4 col-md-offset-4">
@@ -56,19 +73,5 @@
         </div>
     </div>
 </div>
-
-<!-- jQuery first, then Bootstrap JS. -->
-<script src="{$template}/js/jquery.min.js"></script>
-<script src="{$template}/bootstrap/js/bootstrap.min.js"></script>
-<script src="{$template}/js/system.js"></script>
-<script src="{$template}/js/app.js"></script>
-
-<!-- Material Design for Bootstrap -->
-<script src="{$template}/bootstrap-material-design/js/material.min.js"></script>
-<script src="{$template}/bootstrap-material-design/js/ripples.min.js"></script>
-<script>
-    $.material.init();
-</script>
-
-</body>
-</html>
+*}
+{include file='footer.tpl'}
