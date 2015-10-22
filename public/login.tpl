@@ -1,4 +1,4 @@
-{include file='header.tpl'}
+{include file='header.tpl' site_title='Login - MSV overflow'}
 <div class="container login-page">
     <div class="text-center heading">
         <h4>Log in to continue to  <img src="{$template}/images/logo-dark-horisontal.png" alt="MSV Overflow"/></h4>

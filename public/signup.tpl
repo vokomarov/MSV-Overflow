@@ -1,4 +1,4 @@
-{include file='header.tpl'}
+{include file='header.tpl' site_title='Sign up - MSV overflow'}
 
 <div class="container login-page">
     <div class="text-center heading">
