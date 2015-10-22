@@ -29,3 +29,5 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 # For deploy with any local configuration
 application/config/config.php
 application/config/database.php
+web.config
+.ftpquota
