@@ -22,16 +22,15 @@
 <body>
 <header class="header">
 	<div class="navbar navbar-default">
-		<div class="container">
+		<div class="container{if isset($is_admin)}-fluid{/if}">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				{if !isset($is_home)}
-					<a class="navbar-brand" href="/"><img src="{$template}/images/logo-white-horisontal.png" alt="logo"/> </a>
-				{/if}
+				<a class="navbar-brand {if isset($is_home)}logo-hide{/if}" href="/"><img src="{$template}/images/logo-white-horisontal.png" alt="logo"/> </a>
+
 			</div>
 			<div class="navbar-collapse collapse navbar-responsive-collapse">
 				<ul class="nav navbar-nav navbar-left">

@@ -8,16 +8,16 @@ class Template extends CI_Model{
 
         //associated controller, method with real name in template
         $named = array(
-            'admin' => array(
-                'index' => 'Dashboard',
-                'categories' => 'All categories',
-                'add_category' => 'Add category',
+            'admin' => 'Dashboard',
+            'question' => 'Questions',
+            'category' => 'Categories',
+            'user' => 'Users',
+            'add' => 'New',
 
-            ),
             'welcome' => 'MSV Overflow'
-
         );
         $this->tpl->set('menu', $named);
+
 
         //determiner for current page detection in templates
         $current_controller = $this->router->fetch_class();
@@ -26,11 +26,13 @@ class Template extends CI_Model{
         $current_method = $this->router->fetch_method();
         $this->tpl->set('current_method', $current_method);
 
-        switch($current_controller){
+        $segment_1 = $this->uri->segment(1);
+        $this->tpl->set('root_url', $this->uri->segment(1));
+        switch($segment_1){
             case 'admin':
                 $this->tpl->set('is_admin', 1);
                 break;
-            case 'welcome':
+            case NULL:
                 $this->tpl->set('is_home', 1);
                 break;
             default:

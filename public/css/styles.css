@@ -4,6 +4,9 @@
  * @module MSV
  * @package Stylesheet
  */
+
+@import "mobile.css";
+
 html{
     height: 100%;
     width: 100%;
@@ -11,15 +14,69 @@ html{
 body{
     width: 100%;
     min-height: 100%;
-    padding-bottom: 60px;
     position: relative;
 }
-body>footer{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+
+/*fixed header and footer*/
+@media (min-width: 768px){
+    body{
+        padding-bottom: 60px;
+    }
+    body>footer{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+    body>header{
+        background-color: #009688;
+        height: 60px;
+    }
+    body>header *{
+        -webkit-transition: all 300ms ease-in-out;
+        -moz-transition: all 300ms ease-in-out;
+        -ms-transition: all 300ms ease-in-out;
+        -o-transition: all 300ms ease-in-out;
+        transition: all 300ms ease-in-out;
+    }
+    body>header>div{
+        position: fixed!important;
+        width: 100%;
+        height: 60px;
+        top: 0;
+        z-index: 100;
+    }
+    body>header.fixed>div{
+        background-color: rgba(0, 150, 136, 0.8)!important;
+    }
+    body>header.fixed>div,
+    body>header.fixed .navbar,
+    body>header.fixed .navbar-nav,
+    body>header.fixed .navbar-brand{
+        height: 35px!important;
+        min-height: 35px!important;
+    }
+    body>header.fixed .navbar-nav a{
+        padding-top: 8px;
+        padding-bottom: 7px;
+    }
+    body>header.fixed .navbar-form{
+        margin: 0;
+        padding: 3px 15px 4px;
+    }
+    body>header.fixed .navbar-brand{
+        padding-top: 6px;
+        padding-bottom: 6px;
+        opacity: 1!important;
+        width: auto!important;
+    }
+    body>header .navbar-brand.logo-hide{
+        opacity: 0;
+        width: 0;
+    }
+
 }
+
 img{
     max-width: 100%;
 }
@@ -51,9 +108,16 @@ img{
 .footer .navbar.navbar, .navbar-default.navbar{
     margin-bottom: 0;
 }
-.footer .navbar .navbar-nav>li>a{
-    color: #252525;
+.footer .navbar .navbar-nav{
+    text-align: left;
 }
+.footer .navbar .navbar-nav>li{
+    display: inline-block;
+    vertical-align: top;
+}
+/*.footer .navbar .navbar-nav>li>a{*/
+    /*color: #252525;*/
+/*}*/
 .login-logo{
     width: 30px;
     height: 33px;
@@ -152,7 +216,49 @@ img{
 }
 
 /* admin */
-.admin-page{
+.admin-page .navbar{
+    margin: 0 -15px;
+}
+.admin-page .admin-menu{
+    /*background: #009688;*/
+}
+.admin-page .admin-menu>li{}
+.admin-page .admin-menu>li>a{
+    color: rgba(255, 255, 255, 0.843137);
+    padding-left: 20px;
+    font-size: 16px;
+    position: relative;
+    z-index: 1;
+}
+.admin-page .admin-menu>li>a .fa{
+    display: inline-block;
+    width: 25px;
+}
+.admin-page .admin-menu>li>.badge{
+    float: right;
+    position: relative;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.81);
+    color: #009688;
+    padding: 4px 10px;
+    font-size: 12px;
+    display: inline-block;
+    margin: 12px 10px;
+}
+.admin-page .admin-menu>li>.badge:hover{
+    background-color: #fff;
+}
+.admin-page .admin-menu>li .badge:hover+a,
+.admin-page .admin-menu>li.active>a:not(.badge),
+.admin-page .admin-menu>li.open>a:not(.badge),
+.admin-page .admin-menu>li>a:focus,
+.admin-page .admin-menu>li>a:hover{
+    background-color: #007c6e;
+}
+.admin-page .admin-menu>li.dropdown{}
+.admin-page .admin-menu>li.dropdown>a{}
+.admin-page .navbar,
+.admin-page .admin-content{
     padding: 20px 0;
 }
 .admin-page .panel p.lead{

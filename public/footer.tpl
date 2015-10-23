@@ -1,7 +1,7 @@
 <footer class="footer">
 	<div class="navbar navbar-default">
-		<div class="container">
-			<div class="navbar-collapse collapse navbar-responsive-collapse">
+		<div class="container{if isset($is_admin)}-fluid{/if}">
+			<div class="navbar">
 				<ul class="nav navbar-nav navbar-left">
 					<li><a href="#">Help</a></li>
 					<li><a href="#">Contact us</a></li>
@@ -22,5 +22,8 @@
 <script src="{$template}/js/system.js"></script>
 <script src="{$template}/js/app.js"></script>
 <script src="{$template}/js/auth.js"></script>
+{if isset($is_admin)}
+	<script src="{$template}/js/admin.js"></script>
+{/if}
 </body>
 </html>

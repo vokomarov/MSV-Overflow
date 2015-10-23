@@ -1,0 +1,15 @@
+/**
+ * Mobile stylesheet
+ *
+ * @module MSV
+ * @package Stylesheet
+ */
+
+@media (max-width: 768px){
+	.navbar-nav{
+		margin: 0;
+	}
+	.navbar .navbar-form{
+		margin: 10px 0;
+	}
+}
