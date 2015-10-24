@@ -270,3 +270,14 @@ img{
 .admin-page .index .nav-pills .badge{
     float: right;
 }
+
+.admin-page .list-group .list-group-item{
+    overflow: visible;
+}
+.admin-page .least-content{
+    text-align: right;
+}
+
+.admin-page table .btn-group{
+    margin: 0;
+}

@@ -15,6 +15,42 @@ MSV.app = (function(document, $){
 		_header = $('.header'),
 
 		//private method
+		bootstrapInputState = function($input, mode, message){
+			var parent = false,
+				mes_cont = '';
+
+			if(typeof $input !== 'object' && typeof $input !== 'function')
+				return false;
+
+			if(typeof message !== 'undefined' && message !== '')
+				mes_cont = '<span class="help-block">' + message + '</span>';
+
+			parent = $($input).closest('.form-group');
+			if(typeof mode !== 'undefined' && mode !== ''){
+				parent.removeClass('has-warning has-error has-success');
+				$($input).next('span').remove();
+				switch(mode){
+					case 'success':
+						parent.addClass('has-success');
+						$($input).after(mes_cont);
+						break;
+					case 'error':
+						parent.addClass('has-error');
+						$($input).after(mes_cont);
+						$($input).focus();
+						break;
+					case 'warning':
+						parent.addClass('has-warning');
+						$($input).after(mes_cont);
+						break;
+					default :
+						break;
+				}
+			}else{
+				parent.removeClass('has-warning has-error has-success');
+				$($input).next('span').remove();
+			}
+		},
 		initBootstrapMaterial = function(){
 			$.material.init();
 		},
@@ -45,6 +81,6 @@ MSV.app = (function(document, $){
 
 	//public method
 	return {
-
+		state: bootstrapInputState
 	}
 })(document, $);
