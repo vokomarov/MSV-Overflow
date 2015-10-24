@@ -80,19 +80,6 @@ body{
 img{
     max-width: 100%;
 }
-.top-offset{
-    margin-top: 10px;
-}
-.light-post{
-    padding: 10px 0 ;
-    border-top: 1px solid #849aa5;
-}
-.nav-tabs{
-    background: #289CD0;
-}
-.without-padding-right{
-    padding-right: 0;
-}
 .navbar .navbar-brand{
     padding: 9px 15px 15px;
 }
@@ -141,8 +128,34 @@ img{
 .switch p{
     margin: 0;
 }
+
+/* index page posts */
+.top-offset{
+    margin-top: 10px;
+}
+.light-post{
+    padding: 10px 0 ;
+    border-top: 1px solid #849aa5;
+}
+.light-post a{
+    font-size: 17px;
+    color: #333333;
+}
+.nav-tabs{
+    background: #289CD0;
+}
+.without-padding-right{
+    padding-right: 0;
+}
 .top-offset-15{
     margin-top: 15px;
+}
+.text-primary, .text-primary .user-profile-link{
+    margin-bottom: 0;
+    font-size:13px;
+}
+.text-primary .user-profile-link{
+    color: #248CD6;
 }
 
 /* signup/login page */
@@ -213,6 +226,12 @@ img{
 .main-menu ul li.active a,
 .main-menu ul li a:hover{
     background-color: #009688!important;
+}
+
+/* question page */
+.question-title{
+    padding-bottom: 5px;
+    border-bottom: 2px solid #849aa5;
 }
 
 /* admin */
