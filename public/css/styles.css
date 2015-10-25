@@ -256,22 +256,20 @@ img{
     height: 12px;
     color: #333;
     margin: 0 auto;
-    opacity: .8;
 }
-.vote a:hover{
-    opacity: 1;
-}
-.vote .rate-up{
-    background: url("../images/rate-btn.png") no-repeat 50% 0;
-}
-.vote .rate-down{
-    background: url("../images/rate-btn.png") no-repeat 50% -16px;
+.vote a>i{
+    line-height: 13px;
+    font-size: 32px;
+    transform: translate(-5px,0);
 }
 .vote .like-btn{
     width: 26px;
     height: 26px;
     margin: 15px auto 5px auto;
-    background: url("../images/rate-btn.png") no-repeat 50% -30px;
+}
+.vote .like-btn i{
+    line-height: 26px;
+    transform: translate(-2px,0);
 }
 .post-signature .panel-body{
     padding: 5px 0 5px 10px;

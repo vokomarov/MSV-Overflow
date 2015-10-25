@@ -6,10 +6,10 @@
         <div class="row">
             <div class="col-lg-9 col-md-9 col-sm-9">
                 <div class="vote pull-left text-center">
-                    <a href="#" class="rate-up"></a>
+                    <a href="#"><i class="mdi-hardware-keyboard-arrow-up"></i></a>
                     <h4 class="count">2</h4>
-                    <a href="#" class="rate-down"></a>
-                    <a href="#" class="like-btn"></a>
+                    <a href="#" ><i class="mdi-hardware-keyboard-arrow-down"></i></a>
+                    <a href="#" class="like-btn"><i class="mdi-action-grade"></i></a>
                     <p class="like-count">1</p>
                 </div>
                 <div class="col-lg-11 col-md-11 col-sm-11">
