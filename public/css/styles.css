@@ -16,6 +16,9 @@ body{
     min-height: 100%;
     position: relative;
 }
+.clr{
+    clear: both;
+}
 
 /*fixed header and footer*/
 @media (min-width: 768px){
@@ -130,6 +133,9 @@ img{
 }
 
 /* index page posts */
+.nav-tabs{
+    border-radius: 2px;
+}
 .top-offset{
     margin-top: 10px;
 }
@@ -144,8 +150,14 @@ img{
 .nav-tabs{
     background: #289CD0;
 }
+.without-padding{
+    padding: 0;
+}
 .without-padding-right{
     padding-right: 0;
+}
+.without-padding-left{
+    padding-left: 0;
 }
 .top-offset-15{
     margin-top: 15px;
@@ -155,7 +167,7 @@ img{
     font-size:13px;
 }
 .text-primary .user-profile-link{
-    color: #248CD6;
+    color: #009688
 }
 
 /* signup/login page */
@@ -228,10 +240,58 @@ img{
     background-color: #009688!important;
 }
 
+/* sidebar */
+.list-group .panel-body{
+    padding: 5px;
+}
+
 /* question page */
 .question-title{
     padding-bottom: 5px;
-    border-bottom: 2px solid #849aa5;
+    border-bottom: 1px solid #849aa5;
+}
+.vote a{
+    display: block;
+    width: 22px;
+    height: 12px;
+    color: #333;
+    margin: 0 auto;
+    opacity: .8;
+}
+.vote a:hover{
+    opacity: 1;
+}
+.vote .rate-up{
+    background: url("../images/rate-btn.png") no-repeat 50% 0;
+}
+.vote .rate-down{
+    background: url("../images/rate-btn.png") no-repeat 50% -16px;
+}
+.vote .like-btn{
+    width: 26px;
+    height: 26px;
+    margin: 15px auto 5px auto;
+    background: url("../images/rate-btn.png") no-repeat 50% -30px;
+}
+.post-signature .panel-body{
+    padding: 5px 0 5px 10px;
+}
+.panel-body .user-action-time{
+    font-size: 12px;
+}
+.panel-body .user-details{
+    margin-top: 5px;
+}
+.user-details .user-avatar{
+    width: 32px;
+    height: 32px;
+    margin-right: 5px;
+}
+.user-details .user-profile-link{
+    display: block;
+}
+.user-details .label{
+    padding: .2em .5em .2em;
 }
 
 /* admin */
