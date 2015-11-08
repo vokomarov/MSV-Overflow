@@ -13,6 +13,7 @@ MSV.app = (function(document, $){
 
 		//private variable
 		_header = $('.header'),
+        _date = $('.relativetime'),
 
 		//private method
 		bootstrapInputState = function($input, mode, message){
@@ -71,6 +72,11 @@ MSV.app = (function(document, $){
 				}
 			});
 		},
+        zipDate=function(){
+            var date = new Date(_date.text());
+            var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            _date.text(monthNames[date.getMonth()]+' '+date.getDay()+' at '+date.getHours()+':'+date.getMinutes());
+        },
 		bindEvent = function(){
 
 		};
@@ -78,6 +84,10 @@ MSV.app = (function(document, $){
 	sys.registerAutoload(initBootstrapMaterial);
 	sys.registerAutoload(bindEvent);
 	sys.registerAutoload(fixedHeader);
+
+    if(_date.length>0) {
+        sys.registerAutoload(zipDate);
+    }
 
 	//public method
 	return {

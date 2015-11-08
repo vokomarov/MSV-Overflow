@@ -18,8 +18,18 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+    public function __construct(){
+        parent::__construct();
+        $this->load->model('welcome_model');
+    }
 	public function index()
 	{
+        $data['question_item']=$this->welcome_model->get_questions();
+        if (empty($data['question_item']))
+        {
+            show_404();
+        }
+        $this->tpl->set($data,'index.tpl');
 		$this->tpl->compile('index.tpl');
 	}
 }

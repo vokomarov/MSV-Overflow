@@ -30,7 +30,7 @@
                         <p>views</p>
                     </div>
                     <div class="col-lg-9 col-md-9 col-sm-9">
-                        <a href="question/">CoordinatorLayout doesn't hide the actionbar</a>
+                        <a href="question/view/1">CoordinatorLayout doesn't hide the actionbar</a>
                         <div class="row">
                             <div class="col-lg-8 col-md-8 col-sm-8">
                                 <span class="label label-warning">java</span>
