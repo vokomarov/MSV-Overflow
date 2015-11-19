@@ -38,6 +38,10 @@ class Template extends CI_Model{
             default:
                 break;
         }
+
+        $this->load->model('user');
+        $this->tpl->set('is_logged', $this->user->is_logged);
+        $this->tpl->set('user', $this->user->logged_user);
     }
 
 }

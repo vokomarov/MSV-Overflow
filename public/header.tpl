@@ -51,8 +51,20 @@
 					</li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="/signup">Sign up</a></li>
-					<li><a href="/login">Log in</a></li>
+					{if $is_logged}
+						<li class="dropdown"><a href="#" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Help<b class="caret">Hello, @{$user}</a>
+							<ul class="dropdown-menu">
+								<li><a href="/user/{$user}">Profile</a></li>
+								<li><a href="/questions">Your question</a></li>
+
+								<li class="divider"></li>
+								<li><a href="/logout">Logout</a></li>
+							</ul>
+						</li>
+					{else}
+						<li><a href="/signup">Sign up</a></li>
+						<li><a href="/signin">Log in</a></li>
+					{/if}
 				</ul>
 			</div>
 		</div>

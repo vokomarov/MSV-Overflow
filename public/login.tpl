@@ -6,21 +6,35 @@
     <div class="">
         <div class="panel panel-default login-box">
             <div class="panel-body">
-                <form action="#" method="post">
+                {if isset($register)}
+                <div class="alert alert-dismissable alert-success">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong>Well done!</strong> You successfully registered. Now you can login with your new account.
+                </div>
+                {/if}
+
+                {if isset($error)}
+                    <div class="alert alert-dismissable alert-danger">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <strong>Wrong access!</strong> Check your login or password.
+                    </div>
+                {/if}
+                <form action="/auth/login" method="post">
                     <div class="form-group">
-                        <input class="form-control floating-label input-lg" id="login" name="login" type="text" placeholder="Login or Email">
+                        <input class="form-control floating-label input-lg" id="auth_login" name="login" type="text" placeholder="Login or Email">
                     </div>
                     <div class="form-group">
-                        <input class="form-control floating-label input-lg" id="password" name="password" type="password" placeholder="Password">
+                        <input class="form-control floating-label input-lg" id="auth_password" name="password" type="password" placeholder="Password">
                         <p class="text-right"><a href="/login/forgot" class="forgot-password">forgot password?</a></p>
                         <p class="text-warning hidden forgot-password-notify">А голову ти свою не забув?</p>
                     </div>
                     <div class="form-group">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" checked="checked"> Remember me forever
+                                <input type="checkbox" checked="checked" name="remember"> Remember me forever
                         </div>
                     </div>
+                    <input type="hidden" name="action" value="login">
                     <div class="form-group">
                         <a role="button" href="/" class="btn btn-default">Back</a>
                         <button type="submit" class="btn btn-primary pull-right">Log In</button>
