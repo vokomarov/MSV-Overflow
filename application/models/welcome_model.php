@@ -7,17 +7,12 @@
  */
 class Welcome_model extends CI_Model{
 
-    public function get_questions(){
+    public function get_questions()
+    {
+        $query = $this->db->order_by('created_at', 'desc');
+        $query = $this->db->limit(10);
         $query = $this->db->get('questions');
         return $query->result_array();
-    }
-    public function get_user($user_id){
-        if($user_id!=false){
-            $query=$this->db->get_where('users',array('id'=>$user_id));
-            return $query->row_array();
-        }
-        else{
-            return false;
-        }
+
     }
 }

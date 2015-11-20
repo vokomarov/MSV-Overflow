@@ -1,4 +1,4 @@
-<div class="col-lg-3 col-md-3 col-sm-3">
+<div class="col-lg-3 col-md-3 col-sm-3 pull-right">
     <h3 class="text-center">Top popular user</h3>
     <div class="list-group panel panel-default">
         <div class="panel-body">

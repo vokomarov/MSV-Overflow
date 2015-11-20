@@ -14,7 +14,6 @@ MSV.app = (function(document, $){
 		//private variable
 		_header = $('.header'),
         _date = $('.relativetime'),
-
 		//private method
 		bootstrapInputState = function($input, mode, message){
 			var parent = false,
@@ -73,9 +72,18 @@ MSV.app = (function(document, $){
 			});
 		},
         zipDate=function(){
-            var date = new Date(_date.text());
             var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-            _date.text(monthNames[date.getMonth()]+' '+date.getDay()+' at '+date.getHours()+':'+date.getMinutes());
+            if (_date.length > 1) {
+                for (var i = 0; i < _date.length; i++) {
+                    var date = new Date(_date[i].innerHTML);
+                    console.log(date.getDay());
+                    _date[i].innerHTML = monthNames[date.getMonth()] + ' ' + date.getDate() + ' at ' + date.getHours() + ':' + date.getMinutes();
+                }
+            }
+            else{
+                var date = new Date(_date.text());
+                _date.text(monthNames[date.getMonth()] + ' ' + date.getDate() + ' at ' + date.getHours() + ':' + date.getMinutes());
+            }
         },
 		bindEvent = function(){
 
