@@ -13,6 +13,10 @@ class Auth extends CI_Controller{
      */
     public function login(){
 
+        if($this->user->is_logged){
+            redirect('/', 'location', 301);
+        }
+
         if($this->input->post('action') == 'login'){
             $this->load->library('form_validation');
             $login = $this->input->post('login');
@@ -25,7 +29,7 @@ class Auth extends CI_Controller{
             ));
 
             if($this->form_validation->run() !== false){
-                if($this->user->authorize($login, $pass, !empty($remember)) == false){
+                if($this->user->authorize($login, $pass, !empty($remember)) != false){
                     $this->load->helper('url');
                     redirect('/', 'location', 301);
                 }
@@ -37,11 +41,14 @@ class Auth extends CI_Controller{
 
     public function logout(){
         $this->user->logout();
-        $this->load->helper('url');
         redirect('/', 'location', 301);
     }
 
     public function register(){
+
+        if($this->user->is_logged){
+            redirect('/', 'location', 301);
+        }
 
         // check form data
         $allow_register = true;

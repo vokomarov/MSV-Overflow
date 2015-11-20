@@ -26,12 +26,9 @@ class User extends CI_Model{
             $user = $this->db->get_where($this->table, array('id' => $user_id), 1)->result_array();
             if(count($user) === 1){
                 $this->is_logged = true;
-                $this->logged_user = $user;
+                $this->logged_user = current($user);
             }
         }
-
-        var_dump($user_id);
-
 
     }
 
@@ -85,7 +82,7 @@ class User extends CI_Model{
 
             // found user $user
             // check password
-            if(strcmp($this->hashPassword($user['password']), $pass) === 0){
+            if(strcmp($this->hashPassword($pass), $user['password']) === 0){
                 // user valid - authorise
 
                 $this->is_logged = true;
