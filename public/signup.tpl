@@ -7,29 +7,37 @@
     <div class="">
         <div class="panel panel-default login-box">
             <div class="panel-body">
-                <form action="#" method="post">
+                {if isset($error)}
+                    <div class="alert alert-dismissable alert-warning">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <h4>Error!</h4>
+                        <p>{$error}</p>
+                    </div>
+                {/if}
+                <form action="/auth/register" method="post">
                     <div class="form-group">
                         <input class="form-control floating-label input-lg" id="name" name="name" type="text" placeholder="Display name" data-hint="Vasya K.">
                     </div>
                     <div class="form-group">
-                        <input class="form-control floating-label input-lg" id="login" name="login" type="text" placeholder="Login" data-hint="Please, type only a-A, 0-9 and - characters">
+                        <input class="form-control floating-label input-lg" id="login" name="login" type="text" placeholder="Login" data-hint="Please, type only a-A, 0-9 and - characters" required>
                     </div>
                     <div class="form-group">
-                        <input class="form-control floating-label input-lg" id="email" name="email" type="email" placeholder="Email" data-hint="help-me@msv.ua">
+                        <input class="form-control floating-label input-lg" id="email" name="email" type="email" placeholder="Email" data-hint="help-me@msv.ua" required>
                     </div>
                     <div class="form-group">
-                        <input class="form-control floating-label input-lg" id="password" name="password" type="password" placeholder="Password" data-hint="Don't worry, We don't see your password, maybe :)">
+                        <input class="form-control floating-label input-lg" id="password" name="password" type="password" placeholder="Password" data-hint="Don't worry, We don't see your password, maybe :)" required>
                     </div>
                     <div class="form-group">
-                        <input class="form-control floating-label input-lg" id="cpassword" name="cpassword" type="password" placeholder="Confirm password" data-hint="Input password from previous field again">
+                        <input class="form-control floating-label input-lg" id="cpassword" name="cpassword" type="password" placeholder="Confirm password" data-hint="Input password from previous field again" required>
                     </div>
                     <div class="form-group">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" checked="checked"> Я погоджуюсь, в разі потреби, передати свою печінку у власність MSV Overflow
+                                <input type="checkbox" checked="checked" name="agree"> Я погоджуюсь, в разі потреби, передати свою печінку у власність MSV Overflow
                             </label>
                         </div>
                     </div>
+                    <input type="hidden" name="action" value="register">
                     <div class="form-group">
                         <a role="button" href="/" class="btn btn-default">Back</a>
                         <button type="submit" class="btn btn-primary pull-right">Sign Up</button>
@@ -42,7 +50,7 @@
 
         <div class="panel panel-default login-box">
             <div class="panel-body text-center">
-                <p>Already have an account? <a href="/login">Log in</a></p>
+                <p>Already have an account? <a href="/signin">Log in</a></p>
             </div>
         </div>
     </div>

@@ -19,53 +19,6 @@ MSV.admin = (function(document, $){
 		_header = $('.header'),
 		_footer = $('.footer'),
 
-		_login_input = $('input#login'),
-		_email_input = $('input#email'),
-		_pass_input = $('input#password'),
-		_conf_pass_input = $('input#confirm_password'),
-
-		//private method
-		checkLogin = function(){
-			var value = _login_input.val();
-			if(value !== ''){
-				auth.check('login', value, function(response){
-					if(response.hasOwnProperty('status') && response.status === 'success'){
-						app.state(_login_input, 'success');
-					}else{
-						app.state(_login_input, 'error', 'Your login already registered. Please, try other login');
-					}
-				});
-			}else{
-				app.state(_login_input);
-			}
-		},
-		checkEmail = function(){
-			var value = _email_input.val();
-			if(value !== ''){
-				auth.check('email', value, function(response){
-					if(response.hasOwnProperty('status') && response.status === 'success'){
-						app.state(_email_input, 'success');
-					}else{
-						app.state(_email_input, 'error', 'Your email already registered. Please, try other email');
-					}
-				});
-			}else{
-				app.state(_email_input);
-			}
-		},
-		checkPass = function(){
-			var pass = _pass_input.val(),
-				cpass = _conf_pass_input.val();
-			if(cpass != '')
-				if(pass !== cpass){
-					app.state(_conf_pass_input, 'error', 'Password not equal.');
-				}else{
-					app.state(_conf_pass_input, 'success');
-				}
-			else
-			app.state(_conf_pass_input);
-
-		},
 		setMenuSize = function(){
 			var content_height = _content.height(),
 				menu_height = _menu.height(),
@@ -93,21 +46,6 @@ MSV.admin = (function(document, $){
 		bindEvent = function(){
 
 			$(window).resize(function(){ setMenuSize(); });
-
-			_login_input.change(function(){
-				checkLogin();
-			});
-
-			_email_input.change(function(){
-				checkEmail();
-			});
-
-			_pass_input.change(function(){
-				checkPass();
-			});
-			_conf_pass_input.change(function(){
-				checkPass();
-			});
 
 		};
 

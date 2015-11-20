@@ -8,17 +8,97 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Auth extends CI_Controller{
 
-    public function index()
-    {
-        $this->load->helper('url');
+    /**
+     * Display login page and login user
+     */
+    public function login(){
+
+        if($this->user->is_logged){
+            redirect('/', 'location', 301);
+        }
+
+        if($this->input->post('action') == 'login'){
+            $this->load->library('form_validation');
+            $login = $this->input->post('login');
+            $pass = $this->input->post('password');
+            $remember = $this->input->post('remember');
+
+            $this->form_validation->set_data(array(
+                'login' => $login,
+                'password' => $pass
+            ));
+
+            if($this->form_validation->run() !== false){
+                if($this->user->authorize($login, $pass, !empty($remember)) != false){
+                    $this->load->helper('url');
+                    redirect('/', 'location', 301);
+                }
+            }
+            $this->tpl->set('error', 'Wrong login');
+        }
+        $this->tpl->compile('login.tpl');
+    }
+
+    public function logout(){
+        $this->user->logout();
         redirect('/', 'location', 301);
+    }
+
+    public function register(){
+
+        if($this->user->is_logged){
+            redirect('/', 'location', 301);
+        }
+
+        // check form data
+        $allow_register = true;
+        if($this->input->post('action') == 'register'){
+
+            $this->load->library('form_validation');
+
+            $name = $this->input->post('name');
+            $login = $this->input->post('login');
+            $email = $this->input->post('email');
+            $pass = $this->input->post('password');
+            $cpass = $this->input->post('cpassword');
+            $remember = $this->input->post('agree');
+            if(!empty($remember)){
+                $data = array(
+                    'name'  => $name,
+                    'login'  => $login,
+                    'email' => $email,
+                    'password' => $pass,
+                    'cpassword' => $cpass
+                );
+
+                $this->form_validation->set_data($data);
+
+                if($this->form_validation->run() == false){
+                    $this->tpl->set('error', validation_errors());
+
+                }else if($this->user->register($data)){
+                    $this->tpl->set('register', array(
+                        'message' => 'Register user successful. Please login with your access.'));
+                    $this->tpl->compile('login.tpl');
+                    $allow_register = false;
+                }
+            }
+        }
+
+        if($allow_register) {
+            $this->tpl->compile('signup.tpl');
+        }
     }
 
     public function checkLogin(){
         $return = array();
-        $inputLogin = $this->input->post('data');
+        $this->load->library('form_validation');
+        $data = array(
+            'login' => $this->input->post('data')
+        );
+        $this->form_validation->set_data($data);
 
-        if($inputLogin){
+        if($this->form_validation->run('login') !== false){
             $return['status'] = 'success';
             $return['message'] = 'Your login was free';
         }else{
@@ -33,9 +113,13 @@ class Auth extends CI_Controller{
 
     public function checkEmail(){
         $return = array();
-        $inputEmail = $this->input->post('data');
+        $this->load->library('form_validation');
+        $data = array(
+            'email' => $this->input->post('data')
+        );
+        $this->form_validation->set_data($data);
 
-        if($inputEmail){
+        if($this->form_validation->run('email') !== false){
             $return['status'] = 'success';
             $return['message'] = 'Your email was free';
         }else{
