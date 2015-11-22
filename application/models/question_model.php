@@ -7,21 +7,22 @@
  */
 class Question_model extends CI_Model{
 
-    public function get_question($id){
-        if($id!=false){
-            $query=$this->db->get_where('questions',array('id'=>$id));
+    public function get_question($id)
+    {
+        if ($id != false) {
+            $query = $this->db->get_where('questions', array('id' => $id));
             return $query->row_array();
-        }
-        else{
+        } else {
             return false;
         }
     }
-    public function get_user($user_id){
-        if($user_id!=false){
-            $query=$this->db->get_where('users',array('id'=>$user_id));
-            return $query->row_array();
-        }
-        else{
+
+    public function  get_answers($id)
+    {
+        if ($id != false) {
+            $query = $this->db->get_where('answers', array('question_id' => $id));
+            return $query->result_array();
+        } else {
             return false;
         }
     }

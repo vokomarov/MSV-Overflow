@@ -21,20 +21,36 @@ class Question extends CI_Controller{
      * map to /index.php/welcome/<method_name>
      * @see http://codeigniter.com/user_guide/general/urls.html
      */
+    public $user_list_array;
+
     public function __construct()
     {
         parent::__construct();
         $this->load->model('question_model');
+        $this->load->model('user_info_model');
     }
-    public function view($question_id){
-        $data['current_question']=$this->question_model->get_question($question_id);
-        if (empty($data['current_question']))
-        {
+
+    public function view($question_id)
+    {
+        $data['current_question'] = $this->question_model->get_question($question_id);
+        $data['answers_question'] = $this->question_model->get_answers($question_id);
+
+        if(empty($data['current_question'])) {
             show_404();
         }
-        $user_id=$data['current_question']['user_id'];
-        $data['user']=$this->question_model->get_user($user_id);
-        $this->tpl->set($data,'question.tpl');
+
+        $user_id = $data['current_question']['user_id'];
+        $data['question_user'] = $this->user_info_model->get_user($user_id);
+
+        if(!empty($data['answers_question'])){
+            $i=0;
+            foreach ($data['answers_question'] as $row) {
+                $this->user_list_array[$i++] = $row['user_id'];
+            }
+            $data['answers_users'] = $this->user_info_model->get_list_users($this->user_list_array);
+        }
+
+        $this->tpl->set($data, 'question.tpl');
         $this->tpl->compile('question.tpl');
     }
 
