@@ -8,16 +8,18 @@
 MSV.namespace('admin');
 MSV.admin = (function(document, $){
 
-		//dependencies
+	//dependencies
 	var sys = MSV.system,
 		app = MSV.app,
 		auth = MSV.auth,
 
-		//private variable
+	//private variable
 		_content = $('.admin-page .admin-content'),
 		_menu = $('.admin-page .navbar'),
 		_header = $('.header'),
 		_footer = $('.footer'),
+
+		_edit_user = $('.edit-user'),
 
 		setMenuSize = function(){
 			var content_height = _content.height(),
@@ -46,6 +48,19 @@ MSV.admin = (function(document, $){
 		bindEvent = function(){
 
 			$(window).resize(function(){ setMenuSize(); });
+
+			if($(_edit_user).length > 0){
+				$('.admin-tabs>div:not(.active)').hide();
+				$(_edit_user).click(function(){
+					$('.admin-tabs>div').each(function(){
+						if($(this).hasClass('active')){
+							$(this).removeClass('active').fadeOut('fast');
+						}else{
+							$(this).addClass('active').fadeIn('fast');
+						}
+					});
+				});
+			}
 
 		};
 

@@ -13,7 +13,7 @@ class Auth extends CI_Controller{
      */
     public function login(){
 
-        if($this->user->is_logged){
+        if($this->user_model->is_logged){
             redirect('/', 'location', 301);
         }
 
@@ -28,8 +28,8 @@ class Auth extends CI_Controller{
                 'password' => $pass
             ));
 
-            if($this->form_validation->run() !== false){
-                if($this->user->authorize($login, $pass, !empty($remember)) != false){
+            if($this->form_validation->run('auth') !== false){
+                if($this->user_model->authorize($login, $pass, !empty($remember)) != false){
                     $this->load->helper('url');
                     redirect('/', 'location', 301);
                 }
@@ -40,13 +40,13 @@ class Auth extends CI_Controller{
     }
 
     public function logout(){
-        $this->user->logout();
+        $this->user_model->logout();
         redirect('/', 'location', 301);
     }
 
     public function register(){
 
-        if($this->user->is_logged){
+        if($this->user_model->is_logged){
             redirect('/', 'location', 301);
         }
 
@@ -73,10 +73,10 @@ class Auth extends CI_Controller{
 
                 $this->form_validation->set_data($data);
 
-                if($this->form_validation->run() == false){
+                if($this->form_validation->run('register') == false){
                     $this->tpl->set('error', validation_errors());
 
-                }else if($this->user->register($data)){
+                }else if($this->user_model->register($data)){
                     $this->tpl->set('register', array(
                         'message' => 'Register user successful. Please login with your access.'));
                     $this->tpl->compile('login.tpl');

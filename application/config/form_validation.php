@@ -15,7 +15,7 @@
  */
 
 $config = array(
-    'auth/register' => array(
+    'register' => array(
         array(
             'field' => 'name',
             'label' => 'Name',
@@ -42,7 +42,29 @@ $config = array(
             'rules' => 'required|matches[password]'
         ),
     ),
-    'auth/login'=> array(
+    'update_user' => array(
+        array(
+            'field' => 'name',
+            'label' => 'Name',
+            'rules' => 'alpha_numeric_spaces'
+        ),
+        array(
+            'field' => 'email',
+            'label' => 'Email',
+            'rules' => 'required|valid_email'
+        ),
+        array(
+            'field' => 'password',
+            'label' => 'Password',
+            'rules' => 'alpha_dash|min_length[3]|max_length[12]'
+        ),
+        array(
+            'field' => 'cpassword',
+            'label' => 'Confirm password',
+            'rules' => 'matches[password]'
+        )
+    ),
+    'auth'=> array(
         array(
             'field' => 'login',
             'label' => 'Login',

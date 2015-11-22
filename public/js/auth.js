@@ -16,10 +16,10 @@ MSV.auth = (function(document, $){
 		_forgot_password = $('.forgot-password'),
 		_forgot_password_notify = $('.forgot-password-notify'),
 
-		_login_input = $('input#login'),
-		_email_input = $('input#email'),
-		_pass_input = $('input#password'),
-		_conf_pass_input = $('input#confirm_password, input#cpassword'),
+		_login_input = $('input#login:not(.no-check)'),
+		_email_input = $('input#email:not(.no-check)'),
+		_pass_input = $('input#password:not(.no-check)'),
+		_conf_pass_input = $('input#confirm_password:not(.no-check), input#cpassword:not(.no-check)'),
 
 		check_url = {
 			'login': '/auth/checklogin/',

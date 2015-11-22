@@ -5,25 +5,24 @@
 	<div class="panel panel-default">
 		<div class="panel-body">
 
-			<form>
+			<form action="#" method="POST">
 				<fieldset>
 					<legend>Please, fill require field</legend>
 
-					<div class="row form-group">
-						<div class="col-lg-offset-1 col-lg-2">
-							<label for="fname" class="control-label">First name</label>
+					{if isset($error)}
+						<div class="alert alert-dismissable alert-warning">
+							<button type="button" class="close" data-dismiss="alert">×</button>
+							<h4>Error!</h4>
+							<p>{$error}</p>
 						</div>
-						<div class="col-lg-3">
-							<input type="text" class="form-control floating-label" id="fname" placeholder="First name">
-						</div>
-					</div>
+					{/if}
 
 					<div class="row form-group">
 						<div class="col-lg-offset-1 col-lg-2">
-							<label for="lname" class="control-label">Last name</label>
+							<label for="fname" class="control-label">Display name</label>
 						</div>
 						<div class="col-lg-3">
-							<input type="text" class="form-control floating-label" id="lname" placeholder="Last name">
+							<input type="text" class="form-control floating-label" name="name" id="name" placeholder="First name">
 						</div>
 					</div>
 
@@ -32,7 +31,7 @@
 							<label for="login" class="control-label">Login <span class="text-danger">*</span></label>
 						</div>
 						<div class="col-lg-3 ">
-							<input type="text" class="form-control floating-label" id="login" placeholder="Login" required>
+							<input type="text" class="form-control floating-label" name="login" id="login" placeholder="Login" required>
 						</div>
 					</div>
 
@@ -41,7 +40,7 @@
 							<label for="email" class="control-label">Email <span class="text-danger">*</span></label>
 						</div>
 						<div class="col-lg-3">
-							<input type="email" class="form-control floating-label" id="email" placeholder="Email" required>
+							<input type="email" class="form-control floating-label" name="email" id="email" placeholder="Email" required>
 						</div>
 					</div>
 
@@ -50,7 +49,7 @@
 							<label for="password" class="control-label">Password <span class="text-danger">*</span></label>
 						</div>
 						<div class="col-lg-3">
-							<input type="password" class="form-control floating-label" id="password" placeholder="Password" required>
+							<input type="password" class="form-control floating-label" name="password" id="password" placeholder="Password" required>
 						</div>
 					</div>
 
@@ -59,7 +58,7 @@
 							<label for="confirm_password" class="control-label">Confirm password <span class="text-danger">*</span></label>
 						</div>
 						<div class="col-lg-3">
-							<input type="password" class="form-control floating-label" id="confirm_password" placeholder="Confirm password" required>
+							<input type="password" class="form-control floating-label" name="cpassword" id="confirm_password" placeholder="Confirm password" required>
 						</div>
 					</div>
 
@@ -76,7 +75,7 @@
 							</select>
 						</div>
 					</div>
-
+					<input type="hidden" name="action" value="add">
 					<div class="row form-group">
 						<div class="col-lg-3">
 							<button class="btn btn-default" onclick="history.go(-1);">Back</button>

@@ -17,4 +17,8 @@ class Welcome extends CI_Controller {
         $this->tpl->set($data,'index.tpl');
 		$this->tpl->compile('index.tpl');
 	}
+
+    public function show_404(){
+        $this->tpl->compile('404.tpl');
+    }
 }

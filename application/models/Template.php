@@ -39,9 +39,9 @@ class Template extends CI_Model{
                 break;
         }
 
-        $this->load->model('user');
-        $this->tpl->set('is_logged', $this->user->is_logged);
-        $this->tpl->set('user', $this->user->logged_user);
+        $this->load->model('user_model');
+        $this->tpl->set('is_logged', $this->user_model->is_logged);
+        $this->tpl->set('user', $this->user_model->logged_user);
     }
 
 }
