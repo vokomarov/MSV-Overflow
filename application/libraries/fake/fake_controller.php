@@ -185,6 +185,12 @@ class CI_Controller {
 
 	/**
 	 *
+	 * @var Category_model
+	 */
+	public $category_model;
+
+	/**
+	 *
 	 * @var Tpl
 	 */
 	public $tpl;
