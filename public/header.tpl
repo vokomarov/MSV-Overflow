@@ -54,8 +54,7 @@
 					{if $is_logged}
 						<li class="dropdown"><a href="#" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Hello, @{$user['login']} <b class="caret"></b></a>
 							<ul class="dropdown-menu">
-								<li><a href="/user/{$user['login']}">Profile</a></li>
-								<li><a href="/questions">Your question</a></li>
+								<li><a href="/userprofile/profile/{$user['id']}">Profile</a></li>
 
 								<li class="divider"></li>
 								<li><a href="/logout">Logout</a></li>

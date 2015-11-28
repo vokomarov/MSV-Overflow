@@ -8,26 +8,27 @@ class Welcome extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('welcome_model');
-        $this->load->model('user_info_model');
+        $this->load->model('question_model');
+        $this->load->model('user_model');
     }
 
     public function index()
     {
-        $data['question_item'] = $this->welcome_model->get_questions();
+        $data['question_item'] = $this->question_model->get_sort_questions('created_at','desc',10);
+
         if (empty($data['question_item'])) {
             show_404();
         }
-
-        if (!empty($data['question_item'])) {
-            $i = 0;
-            foreach ($data['question_item'] as $row) {
-                $this->user_list_array[$i++] = $row['user_id'];
+        else {
+            foreach ($data['question_item'] as &$row) {
+                $row['num'] = $this->question_model->get_num_answers_by_question_id($row['id']);
+                $user_info = $this->user_model->getUserById($row['user_id']);
+                $row['user_id'] = $user_info['id'];
+                $row['user_name'] = $user_info['fname'];
             }
-            $data['question_users'] = $this->user_info_model->get_list_users($this->user_list_array);
         }
 
-        $this->tpl->assign($data, 'index.tpl');
+        $this->tpl->set($data, 'index.tpl');
         $this->tpl->compile('index.tpl');
     }
 
