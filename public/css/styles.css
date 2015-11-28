@@ -437,3 +437,51 @@ img {
 .admin-page table .btn-group {
     margin: 0;
 }
+
+.nav-tabs>li.active>a,.nav-tabs>li.active>a:focus,.nav-tabs>li.active>a:hover {
+    background-color: rgba(255, 255, 255, 0.1)!important;
+}
+.avatar-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    text-align: center;
+    padding: 17px;
+    background: #f6f6f6;
+    background: -moz-linear-gradient(top, #f6f6f6 1%, #f6f6f6 45%, #fff 45%, #fff 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #f6f6f6), color-stop(45%, #f6f6f6), color-stop(45%, #fff), color-stop(100%, #fff));
+    background: -webkit-linear-gradient(top, #f6f6f6 1%, #f6f6f6 45%, #fff 45%, #fff 100%);
+    background: -o-linear-gradient(top, #f6f6f6 1%, #f6f6f6 45%, #fff 45%, #fff 100%);
+    background: -ms-linear-gradient(top, #f6f6f6 1%, #f6f6f6 45%, #fff 45%, #fff 100%);
+    background: linear-gradient(to bottom, #f6f6f6 1%, #f6f6f6 45%, #fff 45%, #fff 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#ffffff', GradientType=0);
+}
+.avatar-card .avatar {
+    width: 215px;
+    height: 220px;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.avatar-card .reputation {
+    padding: 5px 0 0 0;
+    font-size: 22px;
+    font-weight: 300;
+    color: #292f33;
+}
+
+.user-card .user-card-name {
+    color: #2a2a28 !important;
+    font-weight: 700;
+    font-size: 28px !important;
+    margin: 10px 0 6px 0 !important;
+    line-height: 28px;
+    word-break: break-all;
+}
+.user-card .answers .number {
+    display: block;
+    color: #292f33;
+    font-weight: 700;
+    font-size: 17px;
+    text-align: center;
+}

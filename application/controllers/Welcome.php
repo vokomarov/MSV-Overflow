@@ -9,6 +9,7 @@ class Welcome extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('question_model');
+        $this->load->model('answer_model');
         $this->load->model('user_model');
     }
 
@@ -21,7 +22,7 @@ class Welcome extends CI_Controller {
         }
         else {
             foreach ($data['question_item'] as &$row) {
-                $row['num'] = $this->question_model->get_num_answers_by_question_id($row['id']);
+                $row['num'] = $this->answer_model->get_num_answers_by_question_id($row['id']);
                 $user_info = $this->user_model->getUserById($row['user_id']);
                 $row['user_id'] = $user_info['id'];
                 $row['user_name'] = $user_info['fname'];

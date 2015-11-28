@@ -28,6 +28,7 @@ class Question extends CI_Controller{
     {
         parent::__construct();
         $this->load->model('question_model');
+        $this->load->model('answer_model');
         $this->load->model('user_model');
 
     }
@@ -36,7 +37,7 @@ class Question extends CI_Controller{
     {
         $this->question_model->set_number_question_view($question_id);
         $data['current_question'] = $this->question_model->get_question_by_id($question_id);
-        $data['answers_question'] = $this->question_model->get_answers_by_question_id($question_id);
+        $data['answers_question'] = $this->answer_model->get_answers_by_question_id($question_id);
 
         if(empty($data['current_question'])) {
             show_404();

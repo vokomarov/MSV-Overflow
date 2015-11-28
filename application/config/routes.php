@@ -71,9 +71,9 @@ $route['login']  = 'auth/login';
 $route['logout'] = 'auth/logout';
 
 $route['question/(:num)'] = 'question/index/$1';
-$route['question/userprofile/(:num)'] = 'userprofile/index/$1';
+$route['question/userprofile/(:num)'] = 'user/userprofile/index/$1';
 
-$route['userprofile/(:num)'] = 'userprofile/index/$1';
+$route['userprofile/(:num)'] = 'user/userprofile/index/$1';
 
 
 

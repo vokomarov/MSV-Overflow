@@ -53,6 +53,7 @@ class Question_model extends CI_Model{
             return false;
         }
     }
+
     /**
      *  Get question by user id
      *
@@ -68,37 +69,16 @@ class Question_model extends CI_Model{
             return false;
         }
     }
-
     /**
-     *  Get answers by question id
+     *  Get number question by user id
      *
-     * @param int $id
-     * @return string
-     */
-    public function get_answers_by_question_id($id)
-    {
-        if ($id != false) {
-            $query = $this->db->get_where('answers', array('question_id' => $id));
-            return $query->result_array();
-        } else {
-            return false;
-        }
-    }
-
-    /**
-     *  Get number answers by question id
-     *
-     * @param int $id
+     * @param int $user_id
      * @return int
      */
-    public function  get_num_answers_by_question_id($id)
+    public function get_num_questions_by_user_id($user_id)
     {
-        if ($id != false) {
-            $query = $this->db->get_where('answers', array('question_id' => $id));
-            return $query->num_rows();
-        } else {
-            return false;
-        }
+        return count($this->get_questions_by_user_id($user_id));
     }
+    
 
 }
