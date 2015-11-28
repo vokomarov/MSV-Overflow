@@ -368,4 +368,38 @@ class User_model extends CI_Model{
             return false;
         }
     }
+
+    /**
+     * Ban user by id
+     *
+     * @param string $id
+     * @return bool|object
+     */
+    public function banById($id){
+        if($id){
+            return $this->db->update($this->table, array(
+                'group' => '4'
+            ), array(
+                'id' => $id
+            ));
+        }
+        return false;
+    }
+
+    /**
+     * Clear ban user by id
+     *
+     * @param string $id
+     * @return bool|object
+     */
+    public function unBanById($id){
+        if($id){
+            return $this->db->update($this->table, array(
+                'group' => '3'
+            ), array(
+                'id' => $id
+            ));
+        }
+        return false;
+    }
 }

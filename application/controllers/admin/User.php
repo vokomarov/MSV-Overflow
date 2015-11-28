@@ -150,4 +150,18 @@ class User extends CI_Controller{
         }
         redirect('/admin/user', 'location', 301);
     }
+
+    public function ban($id = false){
+        if(intval($id, 10) > 0){
+            $this->user_model->banById($id);
+        }
+        redirect('/admin/user', 'location', 301);
+    }
+
+    public function unBan($id = false){
+        if(intval($id, 10) > 0){
+            $this->user_model->unBanById($id);
+        }
+        redirect('/admin/user', 'location', 301);
+    }
 }
