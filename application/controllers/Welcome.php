@@ -15,17 +15,17 @@ class Welcome extends CI_Controller {
     public function index()
     {
         $data['question_item'] = $this->welcome_model->get_questions();
-        if (empty($data['question_item'])) {
-            show_404();
-        }
-
-        if (!empty($data['question_item'])) {
-            $i = 0;
-            foreach ($data['question_item'] as $row) {
-                $this->user_list_array[$i++] = $row['user_id'];
-            }
-            $data['question_users'] = $this->user_info_model->get_list_users($this->user_list_array);
-        }
+//        if (empty($data['question_item'])) {
+//            show_404();
+//        }
+//
+//        if (!empty($data['question_item'])) {
+//            $i = 0;
+//            foreach ($data['question_item'] as $row) {
+//                $this->user_list_array[$i++] = $row['user_id'];
+//            }
+//            $data['question_users'] = $this->user_info_model->get_list_users($this->user_list_array);
+//        }
 
         $this->tpl->assign($data, 'index.tpl');
         $this->tpl->compile('index.tpl');

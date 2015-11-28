@@ -37,6 +37,9 @@ class User_model extends CI_Model{
             }
         }
 
+        $this->tpl->registerPlugin("block","is_group", array($this, "is_group"));
+        $this->tpl->registerPlugin("block","is_not_group", array($this, "is_not_group"));
+
     }
 
     public function add($data = false){
@@ -310,5 +313,59 @@ class User_model extends CI_Model{
     public function getGroupNameById($id){
         $intid = intval($id, 10);
         return isset($this->groups[$intid])?$this->groups[$intid]:false;
+    }
+
+    /**
+     * Smarty custom plugin
+     * Verify current user group in templates
+     * If current user in group 1 or 2 then he can see text between tags
+     * Example: {is_group groups="1,2"}Admin,Moder{/is_group}
+     *
+     * @name is_group
+     * @param string $params
+     * @param string $content
+     * @return null|string
+     */
+    public function is_group($params, $content){
+        if(isset($params['groups'])){
+            if($this->checkUserGroup($params['groups'])){
+                return $content;
+            }else{
+                return NULL;
+            }
+        }else{
+            return $content;
+        }
+    }
+    public function is_not_group($params, $content){
+        if(isset($params['groups'])){
+            if(!$this->checkUserGroup($params['groups'])){
+                return $content;
+            }else{
+                return NULL;
+            }
+        }else{
+            return $content;
+        }
+    }
+
+
+    /**
+     * Check user group
+     *
+     * @param array $needle - string like "2,4,6,1"
+     * @return bool
+     */
+    public function checkUserGroup($needle){
+        if(!isset($this->logged_user['group'])){
+            return false;
+        }
+        $groups = explode(',', $needle);
+        $group = $this->logged_user['group'];
+        if(in_array($group, $groups)){
+            return true;
+        }else{
+            return false;
+        }
     }
 }

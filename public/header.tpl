@@ -51,12 +51,16 @@
 					</li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
+
+
 					{if $is_logged}
 						<li class="dropdown"><a href="#" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Hello, @{$user['login']} <b class="caret"></b></a>
 							<ul class="dropdown-menu">
+								{is_group groups="1,2"}
+									<li><a href="/admin">Admin page</a></li>
+								{/is_group}
 								<li><a href="/user/{$user['login']}">Profile</a></li>
 								<li><a href="/questions">Your question</a></li>
-
 								<li class="divider"></li>
 								<li><a href="/logout">Logout</a></li>
 							</ul>
