@@ -24,7 +24,11 @@
 						<tr>
 							<td><a href="/admin/user/{$user['id']}">{$user['id']}</a></td>
 							<td><a href="/admin/user/{$user['id']}">{$user['fname']}</a></td>
-							<td><a href="/admin/user/{$user['id']}">@{$user['login']}</a></td>
+							<td><a href="/admin/user/{$user['id']}">@{$user['login']}
+									{if $user['group']=='4'}
+										<span class="label label-warning">Banned</span>
+									{/if}
+								</a></td>
 							<td><a href="/admin/user/{$user['id']}">{$user['email']}</a></td>
 							<td><a href="/admin/user/{$user['id']}">{$group[$user['group']]}</a></td>
 							<td>{if $user['karma'] > 0}
@@ -42,7 +46,12 @@
 										<li><a href="/admin/user/{$user['id']}/edit"><i class="fa fa-pencil"></i> Edit</a></li>
 										<li><a href="/admin/user/{$user['id']}/delete"><i class="fa fa-trash-o"></i> Delete</a></li>
 										<li class="divider"></li>
-										<li><a href="/admin/user/{$user['id']}/ban"><i class="fa fa-ban"></i> Ban user</a></li>
+										{if $user['group']=='4'}
+											<li><a href="/admin/user/{$user['id']}/unban"><i class="fa fa-ban"></i> Unban user</a></li>
+										{else}
+											<li><a href="/admin/user/{$user['id']}/ban"><i class="fa fa-ban"></i> Ban user</a></li>
+										{/if}
+
 									</ul>
 								</div>
 							</td>

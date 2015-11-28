@@ -5,13 +5,16 @@
 	<h1>{$user['fname']} (@{$user['login']})</h1>
 	<div class="panel panel-default">
 		<div class="panel-body">
+			{if isset($allow_edit)}
 			<a href="#edit-info" class="btn btn-primary edit-user pull-right"><i class="fa fa-pencil"></i> Edit info</a>
+			{/if}
 			<h3 class="pull-left">User @{$user['login']} detail info</h3>
 			<div class="clearfix"></div>
 			<hr>
 			<div class="admin-tabs">
+				{if isset($allow_edit)}
 				<div {if isset($edit)}class="active"{/if}>
-					<form action="#" method="POST">
+					<form action="/admin/user/{$user['id']}/edit" method="POST">
 						<fieldset>
 							<legend>Please, fill require field</legend>
 
@@ -94,6 +97,7 @@
 						</fieldset>
 					</form>
 				</div>
+				{/if}
 				<div {if !isset($edit)}class="active"{/if}>
 					<div class="row">
 						<div class="col-lg-2 text-right">

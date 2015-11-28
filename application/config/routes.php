@@ -58,10 +58,16 @@ $route['admin/setting'] = 'admin/admin/setting';
 $route['admin/user/(:num)'] = 'admin/user/show/$1';
 $route['admin/user/(:num)/edit'] = 'admin/user/edit/$1';
 $route['admin/user/(:num)/delete'] = 'admin/user/remove/$1';
+$route['admin/user/(:num)/ban'] = 'admin/user/ban/$1';
+$route['admin/user/(:num)/unban'] = 'admin/user/unban/$1';
+
+$route['user/(:num)'] = 'admin/user/show/$1';
+$route['user/(:num)/edit'] = 'admin/user/edit/$1';
+$route['user/(:num)/delete'] = 'admin/user/remove/$1';
 
 $route['signup'] = 'auth/register';
 $route['signin'] = 'auth/login';
-$route['login'] = 'auth/login';
+$route['login']  = 'auth/login';
 $route['logout'] = 'auth/logout';
 
 $route['question/(:num)'] = 'question/index/$1';

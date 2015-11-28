@@ -2,6 +2,13 @@
 
 class Category extends CI_Controller{
 
+    public function __construct(){
+        parent::__construct();
+        if(!$this->user_model->is_logged || !$this->user_model->checkUserGroup('1,2')){
+            redirect('/', 'location', 301);
+        }
+    }
+
     //list all question
     public function index()
     {
