@@ -32,6 +32,9 @@ class Template extends CI_Model{
             case 'admin':
                 $this->tpl->set('is_admin', 1);
                 break;
+            case 'user':
+                $this->tpl->set('is_admin', 1);
+                break;
             case NULL:
                 $this->tpl->set('is_home', 1);
                 break;
@@ -41,7 +44,7 @@ class Template extends CI_Model{
 
         $this->load->model('user_model');
         $this->tpl->set('is_logged', $this->user_model->is_logged);
-        $this->tpl->set('user', $this->user_model->logged_user);
+        $this->tpl->set('c_user', $this->user_model->logged_user);
     }
 
 }

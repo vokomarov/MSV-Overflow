@@ -1,10 +1,32 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Class User
+ *
+ * @permission
+ * -Users       - 1,2
+ * -User add    - 1,2
+ * -User show   - 1,2,3(self)
+ * -User edit   - 1,2,3(self)
+ */
+
 class User extends CI_Controller{
 
-    //list all question
+    public function __construct(){
+        parent::__construct();
+        if(!$this->user_model->is_logged || !$this->user_model->checkUserGroup('1,2,3,4')){
+            redirect('/', 'location', 301);
+        }
+    }
+
+    //list all users
     public function index()
     {
+
+        if(!$this->user_model->checkUserGroup('1,2')){
+            redirect('/', 'location', 301);
+        }
+
         $users = $this->user_model->getUsers();
         $this->tpl->set('users', $users);
         $this->tpl->set('group', $this->user_model->groups);
@@ -12,6 +34,11 @@ class User extends CI_Controller{
     }
 
     public function add(){
+
+        if(!$this->user_model->checkUserGroup('1,2')){
+            redirect('/', 'location', 301);
+        }
+
         if($this->input->post('action') == 'add'){
             $this->load->library('form_validation');
             $data = array(
@@ -39,6 +66,11 @@ class User extends CI_Controller{
     }
 
     public function show($id = false){
+
+        if($this->user_model->checkUserGroup('1,2') || $this->user_model->logged_user['id'] == $id){
+            $this->tpl->set('allow_edit', 1);
+        }
+
         if($id){
             $user = $this->user_model->getUserById($id);
             if($user){
@@ -52,6 +84,14 @@ class User extends CI_Controller{
     }
 
     public function edit($id = false){
+
+        if(!$this->user_model->is_logged || !$this->user_model->checkUserGroup('1,2')){
+            if($this->user_model->logged_user['id'] != $id)
+                redirect('/', 'location', 301);
+        }
+
+        $this->tpl->set('allow_edit', 1);
+
         if($id){
 
             if($this->input->post('action') == 'update'){
@@ -99,6 +139,12 @@ class User extends CI_Controller{
     }
 
     public function remove($id = false){
+
+        if(!$this->user_model->is_logged && !$this->user_model->checkUserGroup('1,2')){
+            if($this->user_model->logged_user['id'] != $id)
+                redirect('/', 'location', 301);
+        }
+
         if($id){
             $this->user_model->deleteUser($id);
         }
