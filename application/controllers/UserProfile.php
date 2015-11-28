@@ -21,8 +21,17 @@ class UserProfile extends CI_Controller{
      * map to /index.php/welcome/<method_name>
      * @see http://codeigniter.com/user_guide/general/urls.html
      */
-    public function index()
+    public function __construct()
     {
+        parent::__construct();
+        $this->load->model('user_model');
+        $this->load->model('question_model');
+    }
+    public function index($user_id)
+    {
+        $data['user_questions'] = $this->question_model->get_questions_by_user_id($user_id);
+
+        $this->tpl->set($data,'user_profile.tpl');
         $this->tpl->compile('user_profile.tpl');
     }
 }

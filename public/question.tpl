@@ -33,7 +33,7 @@
                                     </div>
                                     <div class="user-details">
                                         <img class="user-avatar pull-left" src="http://lorempixel.com/56/56/people/1" alt="icon">
-                                        <a class="user-profile-link" href="userprofile/">{$question_user.fname}</a>
+                                        <a class="user-profile-link" href="userprofile/{$question_user.id}">{$question_user.fname}</a>
                                         <span class="label label-info">{$question_user.karma}</span>
                                         <div class="clr"></div>
                                     </div>
@@ -69,16 +69,12 @@
                                     <div class="user-action-time">
                                         answered <span title="{$answers.created_at}" class="relativetime">{$answers.created_at}</span>
                                     </div>
-                                    {foreach from = $answers_users key = id item = users}
-                                        {if $answers.user_id == $users.id}
                                         <div class="user-details">
                                             <img class="user-avatar pull-left" src="http://lorempixel.com/56/56/people/1" alt="icon">
-                                            <a class="user-profile-link" href="userprofile/">{$users.login}</a>
-                                            <span class="label label-info">{$users.karma}</span>
+                                            <a class="user-profile-link" href="userprofile/{$answers.user_id}">{$answers.user_name}</a>
+                                            <span class="label label-info">{$answers.user_karma}</span>
                                             <div class="clr"></div>
                                         </div>
-                                        {/if}
-                                    {/foreach}
                                 </div>
                             </div>
                         </div>

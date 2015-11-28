@@ -59,8 +59,7 @@
 								{is_group groups="1,2"}
 									<li><a href="/admin">Admin page</a></li>
 								{/is_group}
-								<li><a href="/user/{$c_user['id']}">Profile</a></li>
-								<li><a href="/questions">Your question</a></li>
+								<li><a href="/userprofile/{$c_user['id']}">Profile</a></li>
 								<li class="divider"></li>
 								<li><a href="/logout">Logout</a></li>
 							</ul>

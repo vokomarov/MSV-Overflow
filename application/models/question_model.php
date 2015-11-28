@@ -7,7 +7,44 @@
  */
 class Question_model extends CI_Model{
 
-    public function get_question($id)
+    /**
+     *  Set number question view
+     *
+     * @param int $id
+     */
+    public function set_number_question_view($question_id)
+    {
+        if ($question_id != false) {
+            $this->db->query('UPDATE questions SET views = views+1 WHERE id = '.$question_id);
+        }
+        else {
+            return false;
+        }
+    }
+
+    /**
+     * Get sort questions
+     *
+     * @param string $sort_column
+     * @param string $sort_method
+     * @param int $number_row
+     * @return string
+     */
+    public function get_sort_questions($sort_column = 'created_at', $sort_method = 'desc', $number_row = 10)
+    {
+        $query = $this->db->order_by($sort_column, $sort_method);
+        $query = $this->db->limit($number_row);
+        $query = $this->db->get('questions');
+        return $query->result_array();
+    }
+
+    /**
+     *  Get question by ID
+     *
+     * @param int $id
+     * @return string
+     */
+    public function get_question_by_id($id)
     {
         if ($id != false) {
             $query = $this->db->get_where('questions', array('id' => $id));
@@ -16,8 +53,29 @@ class Question_model extends CI_Model{
             return false;
         }
     }
+    /**
+     *  Get question by user id
+     *
+     * @param int $user_id
+     * @return string
+     */
+    public function get_questions_by_user_id($user_id)
+    {
+        if ($user_id != false) {
+            $query = $this->db->get_where('questions', array('user_id' => $user_id));
+            return $query->result_array();
+        } else {
+            return false;
+        }
+    }
 
-    public function  get_answers($id)
+    /**
+     *  Get answers by question id
+     *
+     * @param int $id
+     * @return string
+     */
+    public function get_answers_by_question_id($id)
     {
         if ($id != false) {
             $query = $this->db->get_where('answers', array('question_id' => $id));
@@ -26,4 +84,21 @@ class Question_model extends CI_Model{
             return false;
         }
     }
+
+    /**
+     *  Get number answers by question id
+     *
+     * @param int $id
+     * @return int
+     */
+    public function  get_num_answers_by_question_id($id)
+    {
+        if ($id != false) {
+            $query = $this->db->get_where('answers', array('question_id' => $id));
+            return $query->num_rows();
+        } else {
+            return false;
+        }
+    }
+
 }
