@@ -89,5 +89,29 @@ $config = array(
             'label' => 'Email',
             'rules' => 'is_unique[users.email]'
         )
+    ),
+    'new_category' => array(
+        array(
+            'field' => 'name',
+            'label' => 'Name',
+            'rules' => 'required|alpha_numeric_spaces'
+        ),
+        array(
+            'field' => 'slug',
+            'label' => 'Slug',
+            'rules' => 'required|regex_match[/^[a-z0-9-]+$/]'
+        )
+    ),
+    'edit_category' => array(
+        array(
+            'field' => 'name',
+            'label' => 'Name',
+            'rules' => 'required|alpha_numeric_spaces'
+        ),
+        array(
+            'field' => 'slug',
+            'label' => 'Slug',
+            'rules' => 'required|regex_match[/^[a-z0-9-]+$/]|is_unique[category.slug]'
+        )
     )
 );

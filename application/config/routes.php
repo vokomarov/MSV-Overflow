@@ -61,6 +61,10 @@ $route['admin/user/(:num)/delete'] = 'admin/user/remove/$1';
 $route['admin/user/(:num)/ban'] = 'admin/user/ban/$1';
 $route['admin/user/(:num)/unban'] = 'admin/user/unban/$1';
 
+$route['admin/category'] = 'admin/category/index';
+$route['admin/category/(:num)/edit'] = 'admin/category/edit/$1';
+$route['admin/category/(:num)/delete'] = 'admin/category/remove/$1';
+
 $route['user/(:num)'] = 'admin/user/show/$1';
 $route['user/(:num)/edit'] = 'admin/user/edit/$1';
 $route['user/(:num)/delete'] = 'admin/user/remove/$1';
