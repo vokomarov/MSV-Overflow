@@ -19,114 +19,39 @@
 					<h2>All question</h2>
 
 					<div class="list-group">
-
-						<div class="list-group-item">
-							<div class="row-action-primary">
-								<i class="mdi-communication-live-help"></i>
-							</div>
-							<div class="row-content">
-								<div class="least-content">15m ago <br>
-									<div class="btn-group">
-										<a href="#" data-target="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i></a>
-										<ul class="dropdown-menu dropdown-menu-right">
-											<li><a href="#">Edit</a></li>
-											<li><a href="#">Delete</a></li>
-											<li class="divider"></li>
-											<li><a href="#">Open</a></li>
-											<li><a href="#">Close</a></li>
-											<li><a href="#">Solve</a></li>
-										</ul>
-									</div>
+						{foreach from=$questions item=q}
+							<div class="list-group-item">
+								<div class="row-action-primary">
+									<i class="mdi-communication-live-help"></i>
 								</div>
-								<h4 class="list-group-item-heading">
-									<span class="label label-info">open</span>
-									<a href="/admin/question/edit/5">Tile with a label</a>
-									<a href="/"><i class="fa fa-external-link"></i></a></h4>
-								<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus.</p>
-							</div>
-						</div>
-						<div class="list-group-separator"></div>
-						<div class="list-group-item">
-							<div class="row-action-primary">
-								<i class="mdi-communication-live-help"></i>
-							</div>
-							<div class="row-content">
-								<div class="least-content">15m ago <br>
-									<div class="btn-group">
-										<a href="#" data-target="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i></a>
-										<ul class="dropdown-menu dropdown-menu-right">
-											<li><a href="#">Edit</a></li>
-											<li><a href="#">Delete</a></li>
-											<li class="divider"></li>
-											<li><a href="#">Open</a></li>
-											<li><a href="#">Close</a></li>
-											<li><a href="#">Solve</a></li>
-										</ul>
+								<div class="row-content">
+									<div class="least-content">{$q.created_at} <br>
+										<div class="btn-group">
+											<a href="#" data-target="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i></a>
+											<ul class="dropdown-menu dropdown-menu-right">
+												{*<li><a href="#">Edit</a></li>*}
+												<li><a href="/admin/question/{$q.id}/delete">Delete</a></li>
+												<li class="divider"></li>
+												<li><a href="/admin/question/{$q.id}/approve">Approve</a></li>
+												<li><a href="/admin/question/{$q.id}/disapprove">Disapprove</a></li>
+												<li><a href="/admin/question/{$q.id}/open">Open</a></li>
+												<li><a href="/admin/question/{$q.id}/close">Close</a></li>
+												<li><a href="/admin/question/{$q.id}/solve">Solve</a></li>
+											</ul>
+										</div>
 									</div>
+									<h4 class="list-group-item-heading">
+										<span class="label label-info">open</span>
+										<a href="/question/{$q.id}">{$q.title} <i class="fa fa-external-link"></i></a>
+										</h4>
+									<p class="list-group-item-text">{$q.content|truncate:70:"...":false}</p>
 								</div>
-								<h4 class="list-group-item-heading">
-									<span class="label label-info">open</span>
-									<a href="/admin/question/edit/5">Tile with a label</a>
-									<a href="/"><i class="fa fa-external-link"></i></a></h4>
-								<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus.</p>
 							</div>
-						</div>
-						<div class="list-group-separator"></div>
-						<div class="list-group-item">
-							<div class="row-action-primary">
-								<i class="mdi-communication-live-help"></i>
-							</div>
-							<div class="row-content">
-								<div class="least-content">15m ago <br>
-									<div class="btn-group">
-										<a href="#" data-target="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i></a>
-										<ul class="dropdown-menu dropdown-menu-right">
-											<li><a href="#">Edit</a></li>
-											<li><a href="#">Delete</a></li>
-											<li class="divider"></li>
-											<li><a href="#">Open</a></li>
-											<li><a href="#">Close</a></li>
-											<li><a href="#">Solve</a></li>
-										</ul>
-									</div>
-								</div>
-								<h4 class="list-group-item-heading">
-									<span class="label label-success">solved</span>
-									<a href="/admin/question/edit/5">Tile with a label</a>
-									<a href="/"><i class="fa fa-external-link"></i></a></h4>
-								<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus.</p>
-							</div>
-						</div>
-						<div class="list-group-separator"></div>
-						<div class="list-group-item">
-							<div class="row-action-primary">
-								<i class="mdi-communication-live-help"></i>
-							</div>
-							<div class="row-content">
-								<div class="least-content">15m ago <br>
-									<div class="btn-group">
-										<a href="#" data-target="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i></a>
-										<ul class="dropdown-menu dropdown-menu-right">
-											<li><a href="#">Edit</a></li>
-											<li><a href="#">Delete</a></li>
-											<li class="divider"></li>
-											<li><a href="#">Open</a></li>
-											<li><a href="#">Close</a></li>
-											<li><a href="#">Solve</a></li>
-										</ul>
-									</div>
-								</div>
-								<h4 class="list-group-item-heading">
-									<span class="label label-default">closed</span>
-									<a href="/admin/question/edit/5">Tile with a label</a>
-									<a href="/"><i class="fa fa-external-link"></i></a></h4>
-								<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus.</p>
-							</div>
-						</div>
-						<div class="list-group-separator"></div>
+							<div class="list-group-separator"></div>
+						{/foreach}
 					</div>
 
-					<ul class="pagination">
+					{*<ul class="pagination">
 						<li class="disabled"><a href="/">«</a></li>
 						<li class="active"><a href="/">1</a></li>
 						<li><a href="/">2</a></li>
@@ -134,7 +59,7 @@
 						<li><a href="/">4</a></li>
 						<li><a href="/">5</a></li>
 						<li><a href="/">»</a></li>
-					</ul>
+					</ul>*}
 
 				</div>
 			</div>

@@ -24,18 +24,6 @@
 			{/is_group}
 		</li>
 
-		{is_group groups="1,2"}
-		<li class="dropdown {if $current_controller == 'category'}active{/if}">
-			<a href="/category" class="dropdown-toggle" data-toggle="dropdown" data-target="#"><i class="fa fa-list"></i> Categories <span class="caret"></span></a>
-			{is_group groups="1,2"}
-			<ul class="dropdown-menu">
-				<li><a href="/admin/category"><i class="fa fa-list"></i> Show all categories</a></li>
-				<li><a href="/admin/category/add"><i class="fa fa-plus"></i> Add new category</a></li>
-			</ul>
-			{/is_group}
-		</li>
-		{/is_group}
-
 		{is_group groups="1"}
 		<li {if $current_method == 'setting'}class="active"{/if}>
 			<a href="/admin/setting"><i class="fa fa-cog"></i> Settings</a>

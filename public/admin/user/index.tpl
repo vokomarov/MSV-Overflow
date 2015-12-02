@@ -61,7 +61,7 @@
 				</tbody>
 			</table>
 
-			<ul class="pagination">
+{*			<ul class="pagination">
 				<li class="disabled"><a href="/">«</a></li>
 				<li class="active"><a href="/">1</a></li>
 				<li><a href="/">2</a></li>
@@ -69,7 +69,7 @@
 				<li><a href="/">4</a></li>
 				<li><a href="/">5</a></li>
 				<li><a href="/">»</a></li>
-			</ul>
+			</ul>*}
 			{else}
 				<div class="alert alert-dismissible alert-info">
 					<button type="button" class="close" data-dismiss="alert">×</button>

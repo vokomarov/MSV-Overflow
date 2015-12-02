@@ -5,42 +5,21 @@
 	<div class="row">
 		<div class="col-md-9">
 			<div class="panel panel-primary">
-				<div class="panel-heading"><h4>Останні питання</h4></div>
+				<div class="panel-heading"><h4>Last questions</h4></div>
 				<div class="panel-body">
 					<div class="list-group">
-						<div class="list-group-item">
-							<div class="row-action-primary">
-								<i class="mdi-communication-live-help"></i>
+						{foreach from=$last_questions item=q}
+							<div class="list-group-item">
+								<div class="row-action-primary">
+									<i class="mdi-communication-live-help"></i>
+								</div>
+								<div class="row-content">
+									<div class="least-content">{$q.created_at}</div>
+									<h4 class="list-group-item-heading"><a href="/question/{$q.id}">{$q.title|truncate:60:"...":false}</a></h4>
+									<p class="list-group-item-text">{$q.content|truncate:60:"...":false}</p>
+								</div>
 							</div>
-							<div class="row-content">
-								<div class="least-content">10m ago</div>
-								<h4 class="list-group-item-heading"><a href="/">How to connect Google API to Laravel</a></h4>
-								<p class="list-group-item-text">Please help, i cannot connect google pi for laravel application</p>
-							</div>
-						</div>
-						<div class="list-group-separator"></div>
-						<div class="list-group-item">
-							<div class="row-action-primary">
-								<i class="mdi-communication-live-help"></i>
-							</div>
-							<div class="row-content">
-								<div class="least-content">1h ago</div>
-								<h4 class="list-group-item-heading"><a href="/">Directory index not work on my hosting</a></h4>
-								<p class="list-group-item-text">Please help</p>
-							</div>
-						</div>
-						<div class="list-group-separator"></div>
-						<div class="list-group-item">
-							<div class="row-action-primary">
-								<i class="mdi-communication-live-help"></i>
-							</div>
-							<div class="row-content">
-								<div class="least-content">yesterday</div>
-								<h4 class="list-group-item-heading"><a href="/">My wordpress site has been hacked</a></h4>
-								<p class="list-group-item-text">Some people hacked my site on shared hosting.</p>
-							</div>
-						</div>
-						<div class="list-group-separator"></div>
+						{/foreach}
 					</div>
 				</div>
 			</div>
@@ -74,78 +53,41 @@
 	<div class="row">
 		<div class="col-md-4">
 			<div class="panel panel-warning">
-				<div class="panel-heading"><h4>Популярні користувачі</h4></div>
+				<div class="panel-heading"><h4>Most popular users</h4></div>
 				<div class="panel-body">
 					<div class="list-group">
-						<div class="list-group-item">
-							<div class="row-picture">
-								<img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
+						{foreach from=$users item=u}
+							<div class="list-group-item">
+								<div class="row-picture">
+									<img class="circle" src="{$template}/images/user-avatar.jpg" alt="icon">
+								</div>
+								<div class="row-content">
+									<h4 class="list-group-item-heading"> <a href="/userprofile/{$u.id}">{$u.fname}</a></h4>
+									<p class="list-group-item-text">Reputation - <span class="label label-info">{$u.karma}</span></p>
+								</div>
 							</div>
-							<div class="row-content">
-								<h4 class="list-group-item-heading"> <a href="/">Jaber</a></h4>
-								<p class="list-group-item-text">Загальна карма користувача - <span class="label label-info">56</span></p>
-							</div>
-						</div>
-						<div class="list-group-separator"></div>
-						<div class="list-group-item">
-							<div class="row-picture">
-								<img class="circle" src="http://lorempixel.com/56/56/people/6" alt="icon">
-							</div>
-							<div class="row-content">
-								<h4 class="list-group-item-heading"> <a href="/"> SV Revizor</a></h4>
-								<p class="list-group-item-text">Загальна карма користувача - <span class="label label-info">24</span></p>
-							</div>
-						</div>
-						<div class="list-group-separator"></div>
-						<div class="list-group-item">
-							<div class="row-picture">
-								<img class="circle" src="http://lorempixel.com/56/56/people/6" alt="icon">
-							</div>
-							<div class="row-content">
-								<h4 class="list-group-item-heading"> <a href="/">VovanMS</a></h4>
-								<p class="list-group-item-text">Загальна карма користувача - <span class="label label-info">16</span></p>
-							</div>
-						</div>
-						<div class="list-group-separator"></div>
+							<div class="list-group-separator"></div>
+						{/foreach}
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="col-md-8">
 			<div class="panel panel-primary">
-				<div class="panel-heading"><h4>Останні відповіді</h4></div>
+				<div class="panel-heading"><h4>Last answers</h4></div>
 				<div class="panel-body">
 					<div class="list-group">
-						<div class="list-group-item">
-							<div class="row-picture">
-								<img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
+						{foreach from=$last_answers item=a}
+							<div class="list-group-item">
+								<div class="row-picture">
+									<img class="circle" src="{$template}/images/user-avatar.jpg" alt="icon">
+								</div>
+								<div class="row-content">
+									<h4 class="list-group-item-heading"> <a href="/userprofile/{$a.user_id}">Jaber</a> - <a href="/question/{$a.question_id}">{$a.content|truncate:30:"...":false}</a></h4>
+									<p class="list-group-item-text">{$a.content|truncate:60:"...":false}</p>
+								</div>
 							</div>
-							<div class="row-content">
-								<h4 class="list-group-item-heading"> <a href="/">Jaber</a> - <a href="/">How to connect Google API to Laravel</a></h4>
-								<p class="list-group-item-text">I don't know, please contact to admin</p>
-							</div>
-						</div>
-						<div class="list-group-separator"></div>
-						<div class="list-group-item">
-							<div class="row-picture">
-								<img class="circle" src="http://lorempixel.com/56/56/people/6" alt="icon">
-							</div>
-							<div class="row-content">
-								<h4 class="list-group-item-heading"> <a href="/"> SV Revizor</a> - <a href="/">Directory index not work on my hosting</a></h4>
-								<p class="list-group-item-text">Go to google</p>
-							</div>
-						</div>
-						<div class="list-group-separator"></div>
-						<div class="list-group-item">
-							<div class="row-picture">
-								<img class="circle" src="http://lorempixel.com/56/56/people/6" alt="icon">
-							</div>
-							<div class="row-content">
-								<h4 class="list-group-item-heading"> <a href="/">VovanMS</a> - <a href="/">My wordpress site has been hacked</a></h4>
-								<p class="list-group-item-text">ахаха, лошара</p>
-							</div>
-						</div>
-						<div class="list-group-separator"></div>
+						{/foreach}
 					</div>
 				</div>
 			</div>
@@ -154,25 +96,25 @@
 	<div class="row">
 		<div class="col-md-4">
 			<div class="panel panel-info">
-				<div class="panel-heading"><h4>Всього запитань</h4></div>
+				<div class="panel-heading"><h4>All questions count</h4></div>
 				<div class="panel-body">
-					<p class="lead">987</p>
+					<p class="lead">{$questions_count}</p>
 				</div>
 			</div>
 		</div>
 		<div class="col-md-4">
 			<div class="panel panel-info">
-				<div class="panel-heading"><h4>Всього відповідей</h4></div>
+				<div class="panel-heading"><h4>All answers count</h4></div>
 				<div class="panel-body">
-					<p class="lead">4154</p>
+					<p class="lead">{$answers_count}</p>
 				</div>
 			</div>
 		</div>
 		<div class="col-md-4">
 			<div class="panel panel-info">
-				<div class="panel-heading"><h4>Всього користувачів</h4></div>
+				<div class="panel-heading"><h4>All users count</h4></div>
 				<div class="panel-body">
-					<p class="lead">345</p>
+					<p class="lead">{$users_count}</p>
 				</div>
 			</div>
 		</div>

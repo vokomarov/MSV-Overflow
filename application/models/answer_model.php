@@ -65,4 +65,14 @@ class Answer_model extends CI_Model
             return false;
         }
     }
+
+    public function get_all_count(){
+        return $this->db->count_all('answers');
+    }
+
+    public function get_last($limit = 0){
+        $query = $this->db->order_by('created_at', 'DESC');
+        $query = $this->db->get('answers', $limit);
+        return $query->result_array();
+    }
 }

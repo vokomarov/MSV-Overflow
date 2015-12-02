@@ -79,6 +79,10 @@ class Question_model extends CI_Model{
     {
         return count($this->get_questions_by_user_id($user_id));
     }
+
+    public function get_all_count(){
+        return $this->db->count_all('questions');
+    }
     
 
 }
