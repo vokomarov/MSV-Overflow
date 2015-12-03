@@ -34,9 +34,9 @@
                             <a href="question/{$item.id}">{$item.title}</a>
                             <div class="row">
                                 <div class="col-lg-8 col-md-8 col-sm-8">
-                                    <span class="label label-warning">java</span>
-                                    <span class="label label-warning">tomcat</span>
-                                    <span class="label label-warning">jaber</span>
+                                    {foreach from=$item.labels key=myid item=labels}
+                                        <span class="label label-warning">{$labels}</span>
+                                    {/foreach}
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4 pull-right">

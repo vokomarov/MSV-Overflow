@@ -18,6 +18,9 @@
 	<link rel="stylesheet" href="{$template}/css/font-awesome.min.css">
 	<link rel="stylesheet" href="{$template}/css/styles.css">
 
+    <!--Trix redactor -->
+    <link rel="stylesheet" href="{$template}/css/trix.css">
+
 </head>
 <body>
 <header class="header">

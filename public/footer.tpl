@@ -22,8 +22,16 @@
 <script src="{$template}/js/system.js"></script>
 <script src="{$template}/js/app.js"></script>
 <script src="{$template}/js/auth.js"></script>
+{if $is_logged}
+    <script src="{$template}/js/user.js"></script>
+    <script src="{$template}/js/question.js"></script>
+{/if}
 {if isset($is_admin)}
 	<script src="{$template}/js/admin.js"></script>
 {/if}
+
+<!-- Trix redactor -->
+<script src="{$template}/js/trix.js"></script>
+
 </body>
 </html>

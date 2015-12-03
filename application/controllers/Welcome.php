@@ -26,11 +26,12 @@ class Welcome extends CI_Controller {
                 $user_info = $this->user_model->getUserById($row['user_id']);
                 $row['user_id'] = $user_info['id'];
                 $row['user_name'] = $user_info['fname'];
+                $row['labels'] = explode(",",$row['tags']);
             }
-        }
 
-        $this->tpl->set($data, 'index.tpl');
-        $this->tpl->compile('index.tpl');
+            $this->tpl->set($data, 'index.tpl');
+            $this->tpl->compile('index.tpl');
+        }
     }
 
     public function show_404(){

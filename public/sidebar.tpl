@@ -23,10 +23,4 @@
             </div>
         </div>
     </div>
-    <h3 class="text-center">Related question</h3>
-    <div class="panel panel-default">
-        <div class="panel-body">
-
-        </div>
-    </div>
 </div>

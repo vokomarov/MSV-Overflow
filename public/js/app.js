@@ -76,7 +76,6 @@ MSV.app = (function(document, $){
             if (_date.length > 1) {
                 for (var i = 0; i < _date.length; i++) {
                     var date = new Date(_date[i].innerHTML);
-                    console.log(date.getDay());
                     _date[i].innerHTML = monthNames[date.getMonth()] + ' ' + date.getDate() + ' at ' + date.getHours() + ':' + date.getMinutes();
                 }
             }

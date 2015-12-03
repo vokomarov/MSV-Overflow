@@ -323,8 +323,12 @@ img {
     transform: translate(-2px, 0);
 }
 
+.post-signature {
+    margin: 10px;
+}
+
 .post-signature .panel-body {
-    padding: 5px 0 5px 10px;
+    padding: 5px 10px 5px 10px;
 }
 
 .panel-body .user-action-time {
@@ -461,6 +465,7 @@ img {
     overflow: hidden;
     margin: auto;
     margin-top: 10px;
+    max-width: 100%;
 }
 
 .avatar-card .reputation {
@@ -484,4 +489,14 @@ img {
     font-weight: 700;
     font-size: 17px;
     text-align: center;
+}
+trix-editor {
+    min-height: 250px !important;
+    overflow-y: scroll;
+}
+.not-visible {
+    display: none;
+}
+.without-hover:hover{
+    background-color: #fff!important;
 }
