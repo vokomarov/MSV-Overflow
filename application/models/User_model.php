@@ -212,7 +212,7 @@ class User_model extends CI_Model{
      *
      * @param int $limit
      * @param int $offset
-     * @return bool
+     * @return array
      */
     public function getUsers($limit = 0, $offset = 0){
         $query = $this->db->get($this->table, $limit, $offset);
@@ -262,6 +262,16 @@ class User_model extends CI_Model{
         }else{
             return false;
         }
+    }
+
+    public function getMostPopular($limit = 0){
+        $query = $this->db->order_by('karma', 'DESC');
+        $query = $this->db->get($this->table, $limit);
+        return $this->usersQueries($query);
+    }
+
+    public function getAllCount(){
+        return $this->db->count_all($this->table);
     }
 
     /**

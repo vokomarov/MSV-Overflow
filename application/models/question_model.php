@@ -87,6 +87,11 @@ class Question_model extends CI_Model{
         }
     }
 
+    public function get_all_count(){
+        return $this->db->count_all('questions');
+    }
+    
+
      /**
      *  Add_question
      *

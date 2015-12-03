@@ -185,6 +185,12 @@ class CI_Controller {
 
 	/**
 	 *
+	 * @var Answer_model
+	 */
+	public $answer_model;
+
+	/**
+	 *
 	 * @var Category_model
 	 */
 	public $category_model;

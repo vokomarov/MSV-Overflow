@@ -7,6 +7,7 @@
 					<li><a href="#">Contact us</a></li>
 					<li><a href="#">Feedback</a></li>
 				</ul>
+				<p class="navbar-text pull-right">Copyright &copy; 2015 Olexandr Revizor aka (SV) and Volodymyr Komarov aka (VovanMS)</p>
 			</div>
 		</div>
 	</div>
